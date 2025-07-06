@@ -1,3 +1,22 @@
 🗒️TOPICS COVERED :
 
-- 
+- Data Preprocessing in Machine Learning
+- Data Collection 
+    - Acquiring data from
+        - CSV files
+        - Online datasets (from Kaggle)
+    - How data quality and quantity can impact model performance
+- Data cleaning
+    - Techniques to handle
+        - incomplete data
+        - inaccurate data
+        - inconsistent data
+- Handling Missing values
+    - Removing missing values
+    - Filling missing values using mean, median
+    - Detect missing values
+- Scaling and normalization
+- Python libraries used in preprocessing
+    - Pandas
+    - Numpy
+    - Scikit-learn
