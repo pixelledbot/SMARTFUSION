@@ -30,8 +30,16 @@
       background: var(--header-bg);
       color: white;
       text-align: center;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .logo {
+      width: 80px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
     }
 
     header h1 {
@@ -42,6 +50,13 @@
     header p {
       font-size: 1.1rem;
       color: #cbd5e1;
+      margin-bottom: 6px;
+    }
+
+    .student-info {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-top: 10px;
     }
 
     .container {
@@ -91,8 +106,15 @@
 <body>
 
   <header>
+    <img src="logo.png" alt="College Logo" class="logo" />
     <h1>SMARTFUSION</h1>
-    <p>4-Week IoT + AI/ML Summer Training at GNDEC, Ludhiana</p>
+    <p>4-Week IoT + AI/ML Training</p>
+    <p>Guru Nanak Dev Engineering College, Ludhiana</p>
+    <div class="student-info">
+      <p><strong>Name:</strong> Simran Kaur</p>
+      <p><strong>Department:</strong> Computer Science and Engineering</p>
+      <p><strong>URN:</strong> 2302680</p>
+    </div>
   </header>
 
   <div class="container">
