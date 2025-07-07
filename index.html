@@ -5,29 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SMARTFUSION Training Report</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
+    :root {
+      --primary: #2563eb;
+      --header-bg: #1e293b;
+      --text: #1f2937;
+      --muted: #64748b;
+      --card-bg: white;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      color: #1f2937;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      color: var(--text);
+      padding-bottom: 60px;
     }
 
     header {
-      background-color: #1e293b;
+      background: var(--header-bg);
       color: white;
-      padding: 40px 20px;
       text-align: center;
+      padding: 40px 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    h1 {
-      margin: 0;
-      font-size: 2.8rem;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
     header p {
-      margin: 10px 0 0;
       font-size: 1.1rem;
       color: #cbd5e1;
     }
@@ -39,47 +51,48 @@
     }
 
     .week {
-      background: white;
+      background: var(--card-bg);
       margin-bottom: 30px;
-      padding: 20px 30px;
-      border-left: 6px solid #3b82f6;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 25px 30px;
+      border-left: 5px solid var(--primary);
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .week h2 {
-      margin-top: 0;
-      color: #1d4ed8;
+      margin-bottom: 10px;
+      color: var(--primary);
     }
 
     .day {
-      margin-left: 20px;
-      font-size: 1.1rem;
+      margin-left: 10px;
       line-height: 2;
     }
 
-    a {
+    .day a {
       text-decoration: none;
-      color: #2563eb;
+      color: var(--primary);
+      font-size: 1.1rem;
     }
 
-    a:hover {
+    .day a:hover {
       text-decoration: underline;
       color: #1d4ed8;
     }
 
     footer {
       text-align: center;
-      color: #64748b;
+      color: var(--muted);
       font-size: 0.95rem;
-      margin: 50px 0 30px;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>SMARTFUSION</h1>
-    <p>IoT & ML Summer Training at GNDEC, Ludhiana</p>
+    <p>4-Week IoT + AI/ML Summer Training at GNDEC, Ludhiana</p>
   </header>
 
   <div class="container">
@@ -105,5 +118,6 @@
   <footer>
     &copy; 2025 SMARTFUSION | Created by Simran Kaur
   </footer>
+
 </body>
 </html>
