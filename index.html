@@ -91,12 +91,25 @@
     }
 
     .week, .project, .gallery {
+      position: relative;
       background: var(--card-bg);
       margin: 30px 0;
       padding: 25px 30px;
-      border-left: 5px solid var(--primary);
       border-radius: 14px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .week::before,
+    .project::before,
+    .gallery::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, #2563eb, #3b82f6);
+      border-radius: 14px 0 0 14px;
     }
 
     .week h2,
