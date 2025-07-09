@@ -4,188 +4,198 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SMARTFUSION Training Report</title>
-
-  <!-- Clean Serif Font + AOS -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
   <style>
     :root {
-      --bg: #E6E5E1;
-      --card: #BAD0CC;
-      --primary: #409891;
-      --secondary: #48ADB7;
-      --text: #1a1a1a;
-      --muted: #555;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
     }
     [data-theme="dark"] {
-      --bg: #1a1a1a;
-      --card: #333;
-      --text: #eee;
-      --muted: #bbb;
+      --bg: #1f2937;
+      --text: #f9fafb;
+      --card-bg: #334155;
+      --muted: #9ca3af;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family:'EB Garamond', serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      padding-bottom:60px;
-      transition:background .3s, color .3s;
+      font-family:'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      transition: background .3s, color .3s;
     }
-    header {
-      text-align:center;
-      padding:60px 20px 40px;
-      position:relative;
-      background:var(--primary);
-      color:white;
-    }
-    header svg {
-      position:absolute;
-      bottom:0; left:0; width:100%; height:80px;
-    }
-    header h1 {
-      font-size:3rem;
-      margin-bottom:10px;
-      animation:fadeIn 1.2s;
+    header { text-align: center; margin-bottom: 40px; }
+    .logo { width: 120px; margin: 0 auto 20px; display: block; }
+    h1 {
+      color: var(--primary);
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1s ease-out;
     }
     header p {
-      animation:fadeIn 1.5s;
+      color: var(--secondary);
+      margin-top: 4px;
+      font-size: 1.1rem;
+      animation: fadeIn 1s ease-out;
     }
     @keyframes fadeIn {
-      from { opacity:0; transform:translateY(15px); }
-      to { opacity:1; transform:translateY(0); }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .dark-toggle {
-      position:absolute;
-      top:20px; right:20px;
-      background:rgba(255,255,255,0.7);
-      border:none;
-      padding:8px;
-      border-radius:4px;
-      cursor:pointer;
+      position: fixed;
+      top: 20px; right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--muted);
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text);
     }
-    .container {
-      max-width:900px;
-      margin:0 auto;
-      padding:0 20px;
-    }
-    .student-info {
-      font-size:1.2rem;
-      background:var(--card);
-      padding:20px 30px;
-      margin:20px auto;
-      max-width:800px;
-      border-left:5px solid var(--primary);
-      border-radius:10px;
-      line-height:1.8;
+    section.student-info {
+      font-size: 1.2rem;
+      background: var(--card-bg);
+      padding: 20px 30px;
+      margin-bottom: 40px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .timeline {
-      position:relative;
-      margin:40px 0;
+      position: relative;
+      margin: 40px 0;
     }
     .timeline::before {
       content:""; position:absolute;
       top:0; bottom:0; left:25px;
-      width:4px; background:var(--primary);
+      width:4px; background: var(--primary);
     }
     .timeline-item {
-      position:relative;
-      margin:20px 0 20px 60px;
-      padding:15px;
-      background:white;
-      border-radius:6px;
-      border-left:4px solid var(--primary);
+      margin: 20px 0 20px 60px;
+      padding: 20px;
+      background: var(--card-bg);
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .timeline-item::before {
-      content:""; position:absolute;
-      left:-46px; top:20px;
-      width:12px; height:12px;
-      background:var(--primary);
-      border-radius:50%;
+    .timeline-item h3 {
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .day a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .day a:hover { text-decoration: underline; color: var(--secondary); }
+    section.project {
+      background: var(--card-bg);
+      padding: 20px 30px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin: 40px 0;
     }
     .testimonial {
-      font-style:italic;
-      background:var(--card);
-      padding:20px; margin:40px 0;
-      border-left:4px solid var(--secondary);
+      font-style: italic;
+      background: var(--card-bg);
+      padding: 20px;
+      margin: 40px 0;
+      border-left: 5px solid var(--secondary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     pre {
-      background:#f4f4f4;
-      padding:15px;
-      overflow-x:auto;
-      border-radius:4px;
-      margin-bottom:40px;
+      background: var(--card-bg);
+      padding: 15px;
+      border-left: 5px solid var(--primary);
+      margin: 40px 0;
+      border-radius: 4px;
+      font-size: 1rem;
+      overflow-x: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .checklist { margin-bottom:40px; }
-    .checklist li { list-style:none; margin:8px 0; }
-    .checklist .done::before { content:"✓ "; color:green; }
-    .checklist .pending::before { content:"▢ "; color:var(--muted); }
+    .checklist {
+      margin: 40px 0;
+      font-size: 1.1rem;
+    }
+    .checklist li { margin-bottom: 10px; }
+    .checklist .done::before { content:"✓ "; color: green; }
+    .checklist .pending::before { content:"▢ "; color: var(--muted); }
     .btn-cert {
-      display:inline-block;
-      margin-bottom:40px;
-      padding:12px 20px;
-      background:var(--primary);
-      color:white;
-      text-decoration:none;
-      border-radius:4px;
+      display: inline-block;
+      margin: 40px 0;
+      padding: 12px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
     }
-    .btn-cert:hover { background:var(--secondary); }
+    .btn-cert:hover { background: var(--secondary); }
     .gallery {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:20px;
-      margin-bottom:40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 20px;
+      margin: 40px 0;
     }
     .gallery img {
-      width:100%;
-      border-radius:6px;
-      cursor:pointer;
-      transition:transform .3s;
+      width: 100%; border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform .3s;
     }
-    .gallery img:hover { transform:scale(1.05); }
-    footer {
-      text-align:center;
-      color:var(--muted);
-      margin-top:60px;
-    }
+    .gallery img:hover { transform: scale(1.05); }
     .about {
-      padding:30px;
-      background:var(--card);
-      border-left:4px solid var(--primary);
-      margin-bottom:60px;
+      background: var(--card-bg);
+      padding: 20px 30px;
+      margin: 40px 0;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    a { color:var(--primary); text-decoration:none; }
-    a:hover { text-decoration:underline; color:var(--secondary); }
-    /* Keep your existing link styles for Week days etc */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin: 60px 0;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body data-theme="light">
 
+  <button class="dark-toggle">🌙</button>
+
   <header data-aos="fade-down">
-    <button class="dark-toggle">🌙</button>
     <a href="https://www.gndec.ac.in" target="_blank">
-      <img src="logo.png" alt="College Logo" class="logo" style="width:140px; margin-bottom:20px;">
+      <img src="logo.png" alt="College Logo" class="logo">
     </a>
     <h1>SMARTFUSION</h1>
     <p>4-Week IoT + AI/ML Training</p>
     <p>Guru Nanak Dev Engineering College, Ludhiana</p>
     <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#E6E5E1"/>
+      <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#f9fafb"/>
     </svg>
   </header>
 
   <div class="container">
-    <!-- Student Info -->
+
     <section class="student-info" data-aos="fade-up">
       <p><strong>Name:</strong> Simran Kaur</p>
       <p><strong>Department:</strong> Computer Science and Engineering</p>
       <p><strong>URN:</strong> 2302680</p>
     </section>
 
-    <!-- Timeline -->
     <div class="timeline">
-      <div class="timeline-item" data-aos="fade-right" data-aos-delay="0">
+      <div class="timeline-item" data-aos="fade-right">
         <h3>Week 1</h3>
         <div class="day"><a href="Week-1-Day-1.html">Day 1</a></div>
         <div class="day"><a href="Week-1-Day-2.html">Day 2</a></div>
@@ -207,29 +217,25 @@
       </div>
     </div>
 
-    <!-- Project -->
     <section class="project" data-aos="fade-up">
-      <h2>Project</h2>
+      <h2 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 12px;">Project</h2>
       <p>Smart Industrial Pollution Control System</p>
     </section>
 
-    <!-- Testimonial -->
     <div class="testimonial" data-aos="fade-up">
       “This training helped me bridge the gap between hardware and machine learning in a practical, hands‑on way.”
     </div>
 
-    <!-- Code Snippet -->
     <div data-aos="fade-up">
-      <h3>Sample Code Snippet</h3>
+      <h2 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 12px;">Sample Code Snippet</h2>
       <pre><code>float readSensor() {
   int raw = analogRead(A0);
   return (raw / 1023.0) * 5.0;
 }</code></pre>
     </div>
 
-    <!-- Progress Tracker -->
     <div data-aos="fade-up">
-      <h3>Progress Tracker</h3>
+      <h2 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 12px;">Progress Tracker</h2>
       <ul class="checklist">
         <li class="done">Arduino setup</li>
         <li class="done">Sensor integration</li>
@@ -237,44 +243,41 @@
       </ul>
     </div>
 
-    <!-- Download Certificate -->
     <a href="certificate.pdf" class="btn-cert" download data-aos="fade-up">Download Certificate</a>
 
-    <!-- Gallery -->
     <section class="gallery" data-aos="fade-up">
-      <h2>Gallery</h2>
+      <h2 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 12px;">Gallery</h2>
       <img src="img1.jpg" alt="Training photo 1" onclick="openLightbox(this.src)">
       <img src="img2.jpg" alt="Training photo 2" onclick="openLightbox(this.src)">
       <img src="img3.jpg" alt="Training photo 3" onclick="openLightbox(this.src)">
       <img src="img4.jpg" alt="Training photo 4" onclick="openLightbox(this.src)">
     </section>
 
-    <!-- Lightbox -->
     <div id="lightbox" onclick="this.style.display='none'"
          style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-         background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
-      <img id="lb-img" style="max-width:90%; max-height:90%; border-radius:6px">
+                background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+      <img id="lb-img" style="max-width:90%; max-height:90%; border-radius:8px">
     </div>
 
-    <!-- About Me -->
     <div class="about" data-aos="fade-up">
-      <h3>About Me</h3>
+      <h2 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 12px;">About Me</h2>
       <p>Created by Simran Kaur — CSE undergrad passionate about IoT & AI/ML. Connect on <a href="#">LinkedIn</a>.</p>
     </div>
 
     <footer data-aos="fade-up">
       &copy; 2025 SMARTFUSION | Created by Simran Kaur
     </footer>
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({duration:600, once:true});
     document.querySelector('.dark-toggle').addEventListener('click', e => {
-      const b = document.body;
+      const b=document.body;
       const theme = b.getAttribute('data-theme')==='dark'?'light':'dark';
       b.setAttribute('data-theme', theme);
-      e.target.textContent = theme==='dark'?'☀️':'🌙';
+      e.target.textContent = theme==='dark' ? '☀️' : '🌙';
     });
     function openLightbox(src) {
       document.getElementById('lb-img').src = src;
