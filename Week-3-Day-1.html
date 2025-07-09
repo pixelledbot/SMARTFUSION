@@ -32,7 +32,7 @@
       margin-top: 15px;
     }
 
-    li {
+    ul > li {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
@@ -40,6 +40,21 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       font-size: 1.1rem;
+    }
+
+    ul > li > ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    ul > li > ul > li {
+      background: none;
+      border-left: none;
+      padding: 5px 0;
+      margin: 0;
+      box-shadow: none;
+      font-size: 1rem;
+      color: #374151;
     }
 
     a.back {
