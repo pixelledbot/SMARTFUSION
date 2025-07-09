@@ -4,205 +4,208 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SMARTFUSION Training Report</title>
+
+  <!-- Google Font & AOS CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #409891;
-      --secondary: #48ADB7;
-      --background: #E6E5E1;
-      --card-bg: #BAD0CC;
-      --text: #1a1a1a;
-      --muted: #555;
+      --bg: #E6E5E1; --card: #BAD0CC; --primary: #409891;
+      --secondary: #48ADB7; --text: #1a1a1a; --muted: #555;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    [data-theme="dark"] {
+      --bg: #1a1a1a; --card: #333; --text: #eee; --muted: #bbb;
     }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      padding-bottom: 60px;
-      position: relative;
-      z-index: 0;
+      font-family:'EB Garamond', serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      padding:20px;
+      transition: background 0.3s, color 0.3s;
     }
-
     header {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 40px 20px 20px;
+      text-align:center;
+      padding:60px 20px;
+      position:relative;
+      background:var(--primary);
+      color:white;
+      overflow:hidden;
     }
-
-    .logo {
-      width: 140px;
-      display: block;
-      margin: 0 auto 20px;
+    /* SVG wave hero */
+    header svg { position:absolute; top:100%; left:0; }
+    header h1 { font-size:3rem; animation:fadeIn 1.2s; }
+    header p { animation:fadeIn 1.5s; }
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(15px);}
+      to {opacity:1; transform:translateY(0);}
     }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .dark-toggle {
+      position:absolute; top:20px; right:20px;
+      background:rgba(255,255,255,0.7); border:none; padding:8px;
+      border-radius:4px; cursor:pointer;
     }
-
-    header p {
-      font-size: 1.1rem;
-      color: #e6f6f4;
-      margin-bottom: 6px;
+    .container { max-width:720px; margin:0 auto; padding:20px; }
+    .student-info { background:var(--card); padding:20px; border-left:5px solid var(--primary); margin-bottom:40px; }
+    .timeline { position:relative; margin:40px 0; }
+    .timeline::before {
+      content:""; position:absolute; top:0; bottom:0; left:20px;
+      width:4px; background:var(--primary);
     }
-
-    .student-info {
-      font-size: 1.2rem;
-      background-color: var(--card-bg);
-      padding: 20px 30px;
-      margin: 20px auto 40px;
-      max-width: 800px;
-      border-left: 5px solid var(--primary);
-      border-radius: 10px;
-      line-height: 1.8;
+    .timeline-item {
+      position:relative;
+      margin:20px 0 20px 60px;
+      padding:10px 20px;
+      background:white; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      border-left:4px solid var(--primary);
     }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .timeline-item::before {
+      content:""; position:absolute;
+      left:-44px; top:18px;
+      width:12px; height:12px;
+      background:var(--primary); border-radius:50%;
     }
-
-    .week, .project, .gallery {
-      background: white;
-      margin: 30px 0;
-      padding: 25px 30px;
-      border-left: 5px solid var(--primary);
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    .testimonial {
+      font-style:italic; background:var(--card);
+      padding:20px; margin:40px 0; border-left:4px solid var(--secondary);
     }
-
-    .week h2,
-    .project h2,
-    .gallery h2 {
-      color: var(--primary);
-      margin-bottom: 15px;
-      font-size: 1.5rem;
+    pre { background:#f4f4f4; padding:15px; overflow-x:auto; }
+    .checklist li {
+      list-style:none;
+      margin:8px 0;
     }
-
-    .day {
-      line-height: 2;
+    .checklist .done::before { content:"✓ "; color:green; }
+    .checklist .pending::before { content:"▢ "; color:var(--muted); }
+    .btn-cert {
+      display:inline-block; margin:20px 0;
+      padding:12px 20px; background:var(--primary); color:white;
+      text-decoration:none; border-radius:4px;
     }
-
-    .day a {
-      text-decoration: none;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-
-    .day a:hover {
-      text-decoration: underline;
-      color: var(--secondary);
-    }
-
-    .project p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+      gap:15px;
+      margin-bottom:40px;
     }
-
     .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-      object-fit: cover;
-      aspect-ratio: 4 / 3;
+      width:100%; border-radius:6px; cursor:pointer;
+      transition:transform .3s;
     }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 60px;
-    }
-
-    @media (min-width: 1024px) {
-      header h1 {
-        font-size: 3rem;
-      }
-      .week, .project, .gallery {
-        padding: 30px 40px;
-      }
-    }
+    .gallery img:hover { transform:scale(1.05); }
+    footer { text-align:center; color:var(--muted); margin:60px 0; }
+    .about { padding:30px; background:var(--card); border-left:4px solid var(--primary); margin-bottom:60px; }
   </style>
 </head>
-<body>
+<body data-theme="light">
 
-  <header>
-    <a href="https://www.gndec.ac.in" target="_blank">
-      <img src="logo.png" alt="College Logo" class="logo" />
-    </a>
-    <h1>SMARTFUSION</h1>
-    <p>4-Week IoT + AI/ML Training</p>
-    <p>Guru Nanak Dev Engineering College, Ludhiana</p>
+  <header data-aos="fade-down">
+    <button class="dark-toggle">🌙</button>
+    <h1>SMARTFUSION: IoT + AI/ML</h1>
+    <p>4‑Week Hands‑On Training @ GNDEC Ludhiana</p>
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" height="100" width="100%">
+      <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#E6E5E1"/>
+    </svg>
   </header>
-
-  <section class="student-info">
-    <p><strong>Name:</strong> Simran Kaur</p>
-    <p><strong>Department:</strong> Computer Science and Engineering</p>
-    <p><strong>URN:</strong> 2302680</p>
-  </section>
 
   <div class="container">
 
-    <!-- Week 1 -->
-    <div class="week">
-      <h2>Week 1</h2>
-      <div class="day"><a href="Week-1-Day-1.html">Day 1</a></div>
-      <div class="day"><a href="Week-1-Day-2.html">Day 2</a></div>
-      <div class="day"><a href="Week-1-Day-3.html">Day 3</a></div>
-    </div>
-
-    <!-- Week 2 -->
-    <div class="week">
-      <h2>Week 2</h2>
-      <div class="day"><a href="Week-2-Day-1.html">Day 1</a></div>
-      <div class="day"><a href="Week-2-Day-2.html">Day 2</a></div>
-      <div class="day"><a href="Week-2-Day-3.html">Day 3</a></div>
-      <div class="day"><a href="Week-2-Day-4.html">Day 4</a></div>
-      <div class="day"><a href="Week-2-Day-5.html">Day 5</a></div>
-    </div>
-
-    <!-- Week 3 -->
-    <div class="week">
-      <h2>Week 3</h2>
-      <div class="day"><a href="Week-3-Day-1.html">Day 1</a></div>
-      <div class="day"><a href="Week-3-Day-2.html">Day 2</a></div>
-      <div class="day"><a href="Week-3-Day-3.html">Day 3</a></div>
-    </div>
-
-    <!-- Project -->
-    <section class="project">
-      <h2>Project</h2>
-      <p>Smart Industrial Pollution Control System</p>
+    <section class="student-info" data-aos="fade-up">
+      <p><strong>Name:</strong> Simran Kaur</p>
+      <p><strong>Department:</strong> Computer Science & Engineering</p>
+      <p><strong>URN:</strong> 2302680</p>
     </section>
 
-    <!-- Gallery -->
-    <section class="gallery">
-      <h2>Gallery</h2>
-      <img src="img1.jpg" alt="Training photo 1" />
-      <img src="img2.jpg" alt="Training photo 2" />
-      <img src="img3.jpg" alt="Training photo 3" />
-      <img src="img4.jpg" alt="Training photo 4" />
-    </section>
+    <!-- Timeline of Weeks -->
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Week 1: Basics</h3>
+        <p>Intro to sensors, Arduino setup, environment readings.</p>
+      </div>
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+        <h3>Week 2: Integration</h3>
+        <p>Sensor integration, data logging, IoT connectivity.</p>
+      </div>
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+        <h3>Week 3: ML + Project</h3>
+        <p>Model training, analytics, Smart pollution project.</p>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial" data-aos="fade-up">
+      “This training helped me bridge hardware & machine learning in a practical, hands-on way.”
+    </div>
+
+    <!-- Code snippet -->
+    <div data-aos="fade-up">
+      <h3>Sample Arduino Code</h3>
+      <pre><code>float readSensor() {
+  int raw = analogRead(A0);
+  return (raw / 1023.0) * 5.0;
+}</code></pre>
+    </div>
+
+    <!-- Progress checklist -->
+    <div data-aos="fade-up">
+      <h3>Progress Tracker</h3>
+      <ul class="checklist">
+        <li class="done">Arduino setup</li>
+        <li class="done">Sensor integration</li>
+        <li class="pending">ML model training</li>
+      </ul>
+    </div>
+
+    <!-- Certificate button -->
+    <a href="certificate.pdf" class="btn-cert" download data-aos="fade-up">Download Certificate</a>
+
+    <!-- Gallery Lightbox -->
+    <div class="gallery" data-aos="fade-up">
+      <img src="img1.jpg" alt="Training 1" onclick="openLightbox(this.src)" />
+      <img src="img2.jpg" alt="Training 2" onclick="openLightbox(this.src)" />
+      <img src="img3.jpg" alt="Training 3" onclick="openLightbox(this.src)" />
+      <img src="img4.jpg" alt="Training 4" onclick="openLightbox(this.src)" />
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" onclick="this.style.display='none'"
+         style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+                background:rgba(0,0,0,0.8);align-items:center;justify-content:center;">
+      <img id="lb-img" style="max-width:90%;max-height:90%;border-radius:6px"/>
+    </div>
+
+    <!-- About Me -->
+    <div class="about" data-aos="fade-up">
+      <h3>About Me</h3>
+      <p>Hi, I'm Simran—a CSE undergrad passionate about IoT and AI. Connect on <a href="#">LinkedIn</a> or check my <a href="#">resume</a>.</p>
+    </div>
+
+    <footer data-aos="fade-up">
+      &copy; 2025 SMARTFUSION | Created by Simran Kaur
+    </footer>
 
   </div>
 
-  <footer>
-    &copy; 2025 SMARTFUSION | Created by Simran Kaur
-  </footer>
+  <!-- AOS & Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration:600, once:true });
 
+    // Dark/Light toggle
+    document.querySelector('.dark-toggle').addEventListener('click', e => {
+      let root = document.body;
+      let theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      e.target.textContent = theme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Lightbox
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lb-img').src = src;
+      lb.style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
