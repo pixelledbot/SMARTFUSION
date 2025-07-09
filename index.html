@@ -6,11 +6,12 @@
   <title>SMARTFUSION Training Report</title>
   <style>
     :root {
-      --primary: #2563eb;
-      --header-bg: #1e293b;
-      --text: #1f2937;
-      --muted: #64748b;
-      --card-bg: white;
+      --primary: #409891;
+      --secondary: #48ADB7;
+      --background: #E6E5E1;
+      --card-bg: #BAD0CC;
+      --text: #1a1a1a;
+      --muted: #555;
     }
 
     * {
@@ -21,38 +22,18 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f9fafb;
+      background: var(--background);
       color: var(--text);
       padding-bottom: 60px;
       position: relative;
       z-index: 0;
     }
 
-    /* Background Animation */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('bg.png');
-      opacity: 0.4;
-      z-index: -1;
-      animation: scrollBg 60s linear infinite;
-    }
-
-    @keyframes scrollBg {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
-    }
-
     header {
-      background: var(--header-bg);
+      background: var(--primary);
       color: white;
       text-align: center;
       padding: 40px 20px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .logo {
@@ -68,19 +49,18 @@
 
     header p {
       font-size: 1.1rem;
-      color: #cbd5e1;
+      color: #e6f6f4;
       margin-bottom: 6px;
     }
 
     .student-info {
       font-size: 1.2rem;
-      background-color: #e0f2fe;
+      background-color: var(--card-bg);
       padding: 20px 30px;
       margin: 20px auto 40px;
       max-width: 800px;
       border-left: 5px solid var(--primary);
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       line-height: 1.8;
     }
 
@@ -91,7 +71,7 @@
     }
 
     .week, .project, .gallery {
-      background: var(--card-bg);
+      background: white;
       margin: 30px 0;
       padding: 25px 30px;
       border-left: 5px solid var(--primary);
@@ -119,7 +99,7 @@
 
     .day a:hover {
       text-decoration: underline;
-      color: #1d4ed8;
+      color: var(--secondary);
     }
 
     .project p {
