@@ -13,25 +13,21 @@
       max-width: 800px;
       margin: auto;
     }
-
     h1 {
       color: #2563eb;
       font-size: 2.2rem;
       margin-bottom: 5px;
     }
-
     h2 {
       font-size: 1.5rem;
       color: #1e40af;
       margin-top: 30px;
     }
-
     ul {
       list-style: none;
       padding-left: 0;
       margin-top: 15px;
     }
-
     li {
       background: #ffffff;
       border-left: 5px solid #2563eb;
@@ -41,7 +37,42 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       font-size: 1.1rem;
     }
-
+    .topic {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topic::after {
+      content: '+';
+      color: #2563eb;
+      font-weight: bold;
+    }
+    .topic.active::after {
+      content: '–';
+    }
+    .content {
+      display: none;
+      padding-top: 10px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    li.open .content {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #e0e7ff;
+    }
     a.back {
       display: inline-block;
       margin-top: 40px;
@@ -49,11 +80,9 @@
       color: #2563eb;
       font-weight: bold;
     }
-
     a.back:hover {
       text-decoration: underline;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -63,16 +92,110 @@
   </style>
 </head>
 <body>
-
   <h1>Week 1 - Day 2</h1>
   <h2>Topics Covered</h2>
   <ul>
-    <li>Architecture of AI</li>
-    <li>Sensors and Actuators</li>
-    <li>Introduction to NodeMCU and Raspberry Pi</li>
-    <li>Wokwi Simulator</li>
-    <li>Arduino IDE Installation and Working</li>
-    <li>Difference between Arduino, NodeMCU and Raspberry Pi</li>
+    <li>
+      <div class="topic">Architecture of IoT</div>
+      <div class="content">
+        <p><strong>Diagram:</strong></p>
+           <img src="IoT architecture.jpg" alt="Oracle's IoT Architecture" width="100%"> 
+        <p><strong>Key Features of IoT Architecture:</strong></p>
+        <ul>
+          <li>Acts as a reference model for applying IoT in businesses and services.</li>
+          <li>Uses smart sensors to capture data, perform preprocessing, and send it to communication managers.</li>
+          <li>Sensors connect to a gateway that performs data gathering, computation, and transformation.</li>
+          <li>The communication subsystem contains protocol handlers, message routers, and caching systems.</li>
+          <li>Manages device identity and access control.</li>
+          <li>Data is routed via the internet to enterprise application servers.</li>
+          <li>Analysis subsystems enable integration with business processes and enterprise systems.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Sensors and Actuators</div>
+      <div class="content">
+        <p><strong>Sensors:</strong> Devices that detect physical inputs (temperature, light, pressure, motion) and convert them into signals readable by electronic systems.</p>
+        <p><strong>Types of Sensors:</strong> Temperature sensors (LM35), IR sensors, Ultrasonic sensors, Gas sensors, etc.</p>
+        <p><strong>Actuators:</strong> Devices that convert control signals into physical action (movement, switching).</p>
+        <p><strong>Examples:</strong> Motors, LEDs, buzzers, relays.</p>
+        <p>Sensors sense the environment, actuators act on it — both are fundamental to any embedded or IoT system.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Introduction to NodeMCU and Raspberry Pi</div>
+      <div class="content">
+        <p><strong>NodeMCU:</strong> An open-source IoT platform based on the ESP8266 WiFi module. It has digital/analog I/O pins, built-in WiFi, and is programmable via the Arduino IDE using Lua or C/C++.</p>
+        <p><strong>Raspberry Pi:</strong> A mini single-board computer that can run Linux OS. It supports USB, HDMI, camera, GPIO, and networking, making it powerful for real-time applications and server-based projects.</p>
+        <p><strong>Key Difference:</strong> NodeMCU is for sensor-level embedded applications, Raspberry Pi is for more advanced OS-level computation and interfacing.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Wokwi Simulator</div>
+      <div class="content">
+        <p><strong>Diagram:</strong></p>
+              <img src="wokwi.jpg" alt="Wokwi Simulator" width="100%">
+        <p><strong>Wokwi:</strong> A web-based simulator that allows you to simulate Arduino, ESP32, NodeMCU, and Raspberry Pi Pico projects online.</p>
+        <p>It supports drag-and-drop components, real-time code editing, serial monitor, and sensor emulation. Ideal for beginners and testing circuits without physical hardware.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Arduino IDE Installation and Working</div>
+      <div class="content">
+        <p><strong>Installation:</strong> Download the Arduino IDE from the official website (arduino.cc). Follow OS-specific instructions for Windows, macOS, or Linux.</p>
+        <p><strong>Working:</strong></p>
+        <ul>
+          <li>Connect your Arduino board via USB.</li>
+          <li>Select the board and port from the Tools menu.</li>
+          <li>Write or load a sketch (program) and click Upload.</li>
+          <li>The program is compiled and sent to the board's memory.</li>
+          <li>Use Serial Monitor to debug and view sensor outputs.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Difference between Arduino, NodeMCU and Raspberry Pi</div>
+      <div class="content">
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Arduino</th>
+            <th>NodeMCU</th>
+            <th>Raspberry Pi</th>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>Microcontroller board</td>
+            <td>Microcontroller with WiFi</td>
+            <td>Single-board computer</td>
+          </tr>
+          <tr>
+            <td>Operating System</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Runs Linux OS</td>
+          </tr>
+          <tr>
+            <td>Connectivity</td>
+            <td>No built-in WiFi</td>
+            <td>Built-in WiFi</td>
+            <td>WiFi, Ethernet, Bluetooth (via adapters)</td>
+          </tr>
+          <tr>
+            <td>Programming Language</td>
+            <td>C/C++ (Arduino IDE)</td>
+            <td>C/C++, Lua (Arduino IDE)</td>
+            <td>Python, Java, C/C++</td>
+          </tr>
+          <tr>
+            <td>Use Case</td>
+            <td>Simple sensor-based projects</td>
+            <td>IoT projects with WiFi</td>
+            <td>Multimedia, servers, OS-level apps</td>
+          </tr>
+        </table>
+      </div>
+    </li>
   </ul>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
@@ -81,5 +204,15 @@
     &copy; 2025 SMARTFUSION | Created by Simran Kaur
   </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.topic').forEach(topic => {
+        topic.addEventListener('click', () => {
+          topic.classList.toggle('active');
+          topic.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
