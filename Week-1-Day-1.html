@@ -42,6 +42,34 @@
       font-size: 1.1rem;
     }
 
+    .topic {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topic::after {
+      content: '+';
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .topic.active::after {
+      content: '–';
+    }
+
+    .content {
+      display: none;
+      padding-top: 10px;
+      color: #374151;
+      line-height: 1.4;
+    }
+
+    li.open .content {
+      display: block;
+    }
+
     a.back {
       display: inline-block;
       margin-top: 40px;
@@ -67,11 +95,47 @@
   <h1>Week 1 - Day 1</h1>
   <h2>Topics Covered</h2>
   <ul>
-    <li>Meaning of SmartFusion</li>
-    <li>Introduction to IoT, ML and AI</li>
-    <li>Arduino and its Components</li>
-    <li>Classification of Machine Learning</li>
-    <li>Difference between IoT, ML and AI</li>
+    <li>
+      <div class="topic">Meaning of SmartFusion</div>
+      <div class="content">
+        <p><strong>SmartFusion</strong> is the integration of smart technologies like IoT, AI, and ML to build intelligent systems that sense, process, and act in real-time.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="topic">Introduction to IoT, ML and AI</div>
+      <div class="content">
+        <p><strong>IoT</strong> connects physical devices to the internet. <br>
+           <strong>ML</strong> enables machines to learn from data without being explicitly programmed. <br>
+           <strong>AI</strong> is a broader concept of machines being able to carry out tasks in a way we consider smart.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="topic">Arduino and its Components</div>
+      <div class="content">
+        <p><strong>Arduino</strong> is an open-source electronics platform based on easy-to-use hardware and software. It consists of microcontrollers, input/output pins, voltage regulators, and USB interfaces.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="topic">Classification of Machine Learning</div>
+      <div class="content">
+        <p>Machine Learning is classified into: <br>
+        • <strong>Supervised Learning</strong>: Learns from labeled data. <br>
+        • <strong>Unsupervised Learning</strong>: Finds patterns in unlabeled data. <br>
+        • <strong>Reinforcement Learning</strong>: Learns via rewards and punishments based on actions.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="topic">Difference between IoT, ML and AI</div>
+      <div class="content">
+        <p><strong>IoT</strong> is about connectivity and collecting data. <br>
+           <strong>ML</strong> processes and learns from that data. <br>
+           <strong>AI</strong> uses ML and other tools to simulate human-like decision making.</p>
+      </div>
+    </li>
   </ul>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
@@ -79,6 +143,18 @@
   <footer>
     &copy; 2025 SMARTFUSION | Created by Simran Kaur
   </footer>
+
+  <script>
+    // Accordion toggle script
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.topic').forEach(topic => {
+        topic.addEventListener('click', () => {
+          topic.classList.toggle('active');
+          topic.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
