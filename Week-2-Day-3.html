@@ -10,7 +10,7 @@
       background-color: #f9fafb;
       color: #1f2937;
       padding: 30px;
-      max-width: 900px;
+      max-width: 850px;
       margin: auto;
     }
 
@@ -26,13 +26,7 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
-
-    li.topic {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
@@ -42,20 +36,42 @@
       font-size: 1.1rem;
     }
 
-    ul.subtopic {
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      color: #2563eb;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-weight: bold;
+    }
+
+    details[open] summary::after {
+      content: '–';
+    }
+
+    details > div {
       margin-top: 10px;
-      padding-left: 20px;
+      line-height: 1.6;
+      color: #374151;
     }
 
-    ul.subtopic li {
-      margin-bottom: 8px;
-      font-size: 1.05rem;
+    ul {
+      padding-left: 1.2rem;
+      margin-top: 10px;
     }
 
-    ul.subsub {
-      margin-top: 5px;
-      padding-left: 20px;
-      font-size: 1rem;
+    ul li {
+      margin-bottom: 5px;
     }
 
     a.back {
@@ -83,51 +99,76 @@
   <h1>Week 2 - Day 3</h1>
   <h2>Topics Covered</h2>
 
-  <ul>
-    <li class="topic">Data Preprocessing in Machine Learning</li>
+  <details>
+    <summary>Data Preprocessing in Machine Learning</summary>
+    <div>
+      <p>Data preprocessing is a crucial step in the machine learning pipeline. It ensures that the data is clean, consistent, and suitable for training algorithms, improving model accuracy and efficiency.</p>
+    </div>
+  </details>
 
-    <li class="topic">Data Collection
-      <ul class="subtopic">
-        <li>Acquiring data from:
-          <ul class="subsub">
-            <li>CSV files</li>
-            <li>Online datasets (from Kaggle)</li>
+  <details>
+    <summary>Data Collection</summary>
+    <div>
+      <p>Data is gathered from various sources and formatted into structured datasets. Key sources include:</p>
+      <ul>
+        <li><strong>CSV files:</strong> Widely used format for tabular data.</li>
+        <li><strong>Online datasets:</strong> Websites like Kaggle provide public datasets for various ML tasks.</li>
+      </ul>
+      <p><strong>Importance:</strong> The quantity and quality of the collected data directly affect model accuracy, learning, and generalization.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Data Cleaning</summary>
+    <div>
+      <p>Cleaning the dataset involves fixing or removing incorrect, incomplete, or duplicate data entries.</p>
+      <ul>
+        <li><strong>Incomplete data:</strong> Missing fields or values.</li>
+        <li><strong>Inaccurate data:</strong> Errors or incorrect measurements.</li>
+        <li><strong>Inconsistent data:</strong> Different formats or mismatched categories.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Handling Missing Values</summary>
+    <div>
+      <p>Techniques to deal with null or undefined data entries:</p>
+      <ul>
+        <li><strong>Dropping rows:</strong> Remove rows with missing values if the dataset is large.</li>
+        <li><strong>Filling:</strong> Replace missing data with:
+          <ul>
+            <li>Mean value</li>
+            <li>Median value</li>
+            <li>Constant placeholder</li>
           </ul>
         </li>
-        <li>How data quality and quantity can impact model performance</li>
+        <li><strong>Detection:</strong> Using functions like <code>isnull()</code> or <code>isna()</code> in Python (Pandas).</li>
       </ul>
-    </li>
+    </div>
+  </details>
 
-    <li class="topic">Data Cleaning
-      <ul class="subtopic">
-        <li>Techniques to handle:
-          <ul class="subsub">
-            <li>Incomplete data</li>
-            <li>Inaccurate data</li>
-            <li>Inconsistent data</li>
-          </ul>
-        </li>
+  <details>
+    <summary>Scaling and Normalization</summary>
+    <div>
+      <p>Brings features into the same scale to prevent dominance of larger-scale variables. Types include:</p>
+      <ul>
+        <li><strong>Standardization (Z-score):</strong> Centers around the mean with unit variance.</li>
+        <li><strong>Min-Max Normalization:</strong> Scales values between 0 and 1.</li>
       </ul>
-    </li>
+    </div>
+  </details>
 
-    <li class="topic">Handling Missing Values
-      <ul class="subtopic">
-        <li>Removing missing values</li>
-        <li>Filling missing values using mean, median</li>
-        <li>Detect missing values</li>
+  <details>
+    <summary>Python Libraries Used in Preprocessing</summary>
+    <div>
+      <ul>
+        <li><strong>Pandas:</strong> For data manipulation, cleaning, and analysis.</li>
+        <li><strong>Numpy:</strong> For numerical operations and handling arrays.</li>
+        <li><strong>Scikit-learn:</strong> For preprocessing utilities like scaling, encoding, splitting data.</li>
       </ul>
-    </li>
-
-    <li class="topic">Scaling and Normalization</li>
-
-    <li class="topic">Python Libraries Used in Preprocessing
-      <ul class="subtopic">
-        <li>Pandas</li>
-        <li>Numpy</li>
-        <li>Scikit-learn</li>
-      </ul>
-    </li>
-  </ul>
+    </div>
+  </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
