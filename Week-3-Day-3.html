@@ -26,35 +26,43 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 15px;
-    }
-
-    ul > li {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    summary {
       font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
     }
 
-    ul > li > ul {
-      margin-top: 10px;
-      padding-left: 20px;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    ul > li > ul > li {
-      background: none;
-      border-left: none;
-      padding: 5px 0;
-      margin: 0;
-      box-shadow: none;
+    summary::after {
+      content: "+";
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    details[open] summary::after {
+      content: "\2013";
+    }
+
+    details p, details ul li {
       font-size: 1rem;
       color: #374151;
+      margin-top: 10px;
+      margin-bottom: 8px;
     }
 
     a.back {
@@ -81,15 +89,35 @@
 
   <h1>Week 3 - Day 3</h1>
   <h2>Topics Covered</h2>
-  <ul>
-    <li>K-Nearest Neighbouring (KNN)
+
+  <details>
+    <summary>K-Nearest Neighbouring (KNN)</summary>
+    <p><strong>Working:</strong> KNN is a simple, yet powerful supervised learning algorithm used for both classification and regression. It works by storing the entire training dataset and making predictions based on the majority label of the 'k' closest points in the feature space.</p>
+    <p>When a new data point needs to be classified:
       <ul>
-        <li>Working</li>
-        <li>Example</li>
+        <li>The distance (typically Euclidean) to all other training points is calculated.</li>
+        <li>The k closest neighbors are selected based on this distance.</li>
+        <li>The majority class among these neighbors is assigned to the new point (for classification).</li>
       </ul>
-    </li>
-    <li>Confusion Matrix</li>
-  </ul>
+    </p>
+    <p><strong>Example:</strong> Imagine we want to classify a fruit based on its weight and color. We have data on apples and oranges. When a new fruit comes in, KNN will find the closest fruits in the dataset and predict whether it’s more likely to be an apple or orange based on their majority.</p>
+    <p><strong>Advantages:</strong> Easy to understand, no training phase required. <br>
+       <strong>Disadvantages:</strong> Computationally expensive with large datasets, sensitive to irrelevant features and scale.</p>
+  </details>
+
+  <details>
+    <summary>Confusion Matrix</summary>
+    <p>A Confusion Matrix is a table used to evaluate the performance of a classification model. It shows the number of correct and incorrect predictions made by the classifier compared to the actual outcomes.</p>
+    <p>For a binary classification task, it includes:
+      <ul>
+        <li><strong>True Positive (TP):</strong> Correctly predicted positive class</li>
+        <li><strong>True Negative (TN):</strong> Correctly predicted negative class</li>
+        <li><strong>False Positive (FP):</strong> Incorrectly predicted as positive</li>
+        <li><strong>False Negative (FN):</strong> Incorrectly predicted as negative</li>
+      </ul>
+    </p>
+    <p>From these values, metrics like Accuracy, Precision, Recall, and F1 Score can be calculated to get a more comprehensive understanding of the model’s performance.</p>
+  </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
