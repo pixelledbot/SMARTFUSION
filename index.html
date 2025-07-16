@@ -28,7 +28,6 @@
       z-index: 0;
     }
 
-    /* Background Animation */
     body::before {
       content: "";
       position: fixed;
@@ -126,10 +125,16 @@
       color: var(--primary);
       margin-bottom: 15px;
       font-size: 1.5rem;
+      cursor: pointer;
     }
 
     .day {
       line-height: 2;
+      display: none;
+    }
+
+    .week.active .day {
+      display: block;
     }
 
     .day a {
@@ -198,17 +203,15 @@
 
   <div class="container">
 
-    <!-- Week 1 -->
     <div class="week">
-      <h2>Week 1</h2>
+      <h2 onclick="this.parentElement.classList.toggle('active')">Week 1</h2>
       <div class="day"><a href="Week-1-Day-1.html">Day 1</a></div>
       <div class="day"><a href="Week-1-Day-2.html">Day 2</a></div>
       <div class="day"><a href="Week-1-Day-3.html">Day 3</a></div>
     </div>
 
-    <!-- Week 2 -->
     <div class="week">
-      <h2>Week 2</h2>
+      <h2 onclick="this.parentElement.classList.toggle('active')">Week 2</h2>
       <div class="day"><a href="Week-2-Day-1.html">Day 1</a></div>
       <div class="day"><a href="Week-2-Day-2.html">Day 2</a></div>
       <div class="day"><a href="Week-2-Day-3.html">Day 3</a></div>
@@ -216,21 +219,18 @@
       <div class="day"><a href="Week-2-Day-5.html">Day 5</a></div>
     </div>
 
-    <!-- Week 3 -->
     <div class="week">
-      <h2>Week 3</h2>
+      <h2 onclick="this.parentElement.classList.toggle('active')">Week 3</h2>
       <div class="day"><a href="Week-3-Day-1.html">Day 1</a></div>
       <div class="day"><a href="Week-3-Day-2.html">Day 2</a></div>
       <div class="day"><a href="Week-3-Day-3.html">Day 3</a></div>
     </div>
 
-    <!-- Project -->
     <section class="project">
       <h2>Project</h2>
       <p>Smart Industrial Pollution Control System</p>
     </section>
 
-    <!-- Gallery -->
     <section class="gallery">
       <h2>Gallery</h2>
       <img src="img1.jpg" alt="Training photo 1" />
