@@ -26,25 +26,43 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
-
-    li.topic {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    summary {
       font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      list-style: none;
+      color: #1f2937;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    details[open] summary::after {
+      content: "–";
     }
 
     ul.subtopic {
-      margin-top: 10px;
       padding-left: 20px;
+      margin-top: 10px;
     }
 
     ul.subtopic li {
@@ -117,28 +135,24 @@
   <h1>Week 2 - Day 5</h1>
   <h2>Topics Covered</h2>
 
-  <ul>
-    <li class="topic">
-      <strong>EDA (Exploratory Data Analysis)</strong>
-      <div>
-        <p>Exploratory Data Analysis (EDA) is a critical step in the data science process that involves examining datasets to uncover patterns, spot anomalies, test hypotheses, and check assumptions using summary statistics and graphical representations.</p>
-        <p><strong>Key Goals of EDA:</strong></p>
-        <ul class="subtopic">
-          <li>Understand data distribution</li>
-          <li>Detect missing or incorrect data</li>
-          <li>Identify relationships and correlations</li>
-          <li>Determine variable importance</li>
-        </ul>
-        <p><strong>Tools commonly used:</strong> <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code></p>
-        <p><strong>Example Tasks:</strong></p>
-        <ul class="subtopic">
-          <li>Plotting histograms to view data spread</li>
-          <li>Using box plots to check outliers</li>
-          <li>Creating pair plots to visualize multivariate relationships</li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+  <details>
+    <summary>EDA (Exploratory Data Analysis)</summary>
+    <p>Exploratory Data Analysis (EDA) is a critical step in the data science process that involves examining datasets to uncover patterns, spot anomalies, test hypotheses, and check assumptions using summary statistics and graphical representations.</p>
+    <p><strong>Key Goals of EDA:</strong></p>
+    <ul class="subtopic">
+      <li>Understand data distribution</li>
+      <li>Detect missing or incorrect data</li>
+      <li>Identify relationships and correlations</li>
+      <li>Determine variable importance</li>
+    </ul>
+    <p><strong>Tools commonly used:</strong> <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code></p>
+    <p><strong>Example Tasks:</strong></p>
+    <ul class="subtopic">
+      <li>Plotting histograms to view data spread</li>
+      <li>Using box plots to check outliers</li>
+      <li>Creating pair plots to visualize multivariate relationships</li>
+    </ul>
+  </details>
 
   <div class="project">
     <strong>Mini Project 2: Real-Time IoT Data Dashboard with Graphs</strong>
@@ -175,8 +189,7 @@
     <a href="https://thingspeak.mathworks.com/channels/3003134" target="_blank">View ThingSpeak Channel &rarr;</a>
 
     <h4>Code for Dashboard :</h4>
-    <pre><code>
-import dash
+    <pre><code>import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
@@ -253,9 +266,9 @@ def update_dashboard(n):
 
 # Run the server
 if __name__ == '__main__':
-    app.run(debug=True)  
+    app.run(debug=True)
+</code></pre>
 
-    </code></pre>
     <h4>Custom HTML Dashboard Link</h4>
     <p><a href="http://127.0.0.1:8050/" target="_blank">View Custom Dashboard &rarr;</a></p>
   </div>
