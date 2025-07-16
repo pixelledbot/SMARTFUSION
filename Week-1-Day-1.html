@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Week 1 - Day 1 | SMARTFUSION</title>
+  <title>Week 1 - Day 3 | SMARTFUSION</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -73,6 +73,11 @@
     th {
       background-color: #e0e7ff;
     }
+    img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
     a.back {
       display: inline-block;
       margin-top: 40px;
@@ -92,85 +97,136 @@
   </style>
 </head>
 <body>
-  <h1>Week 1 - Day 1</h1>
+  <h1>Week 1 - Day 3</h1>
   <h2>Topics Covered</h2>
   <ul>
     <li>
-      <div class="topic">Meaning of SmartFusion</div>
+      <div class="topic">Cloud Computing Introduction</div>
       <div class="content">
-        <p><strong>MEANING OF SMARTFUSION:</strong> SmartFusion refers to the integration of Smart Technologies — primarily the Internet of Things (IoT), Machine Learning (ML), and Artificial Intelligence (AI) — to create intelligent, automated, and connected solutions. The concept emphasizes the synergy among devices (IoT), data-driven learning (ML), and intelligent decision-making (AI), enabling systems to adapt and respond in real-time.</p>
+        <p>Cloud computing is a model for delivering computing services like storage, databases, networking, software, analytics, and intelligence over the internet, offering faster innovation, flexible resources, and economies of scale.</p>
       </div>
     </li>
     <li>
-      <div class="topic">Introduction to IoT, ML and AI</div>
+      <div class="topic">Traditional vs Distributed Computing</div>
       <div class="content">
-        <p><strong>Internet of Things (IoT):</strong> A system of interrelated devices that can collect, transfer, and process data over the internet without human interaction. <br> <em>Example:</em> Smartwatches that track your heartbeat and sync data to your phone.</p>
-        <p><strong>Machine Learning (ML):</strong> A subset of AI that enables machines to learn patterns from historical data and improve predictions over time. <br> <em>Example:</em> Email spam filters learning which emails are spam based on past tagging.</p>
-        <p><strong>Artificial Intelligence (AI):</strong> The simulation of human intelligence in machines. It includes logic, decision-making, perception, and language understanding. <br> <em>Example:</em> Virtual assistants like Siri or Alexa understanding and responding to voice commands.</p>
+        <table>
+          <tr><th>Aspect</th><th>Traditional Computing</th><th>Distributed Computing</th></tr>
+          <tr><td>Structure</td><td>Centralized</td><td>Multiple nodes across networks</td></tr>
+          <tr><td>Scalability</td><td>Limited</td><td>Highly Scalable</td></tr>
+          <tr><td>Failure Handling</td><td>Single point of failure</td><td>Redundant and fault-tolerant</td></tr>
+          <tr><td>Use Cases</td><td>Personal apps, small-scale systems</td><td>Cloud, big data, global services</td></tr>
+        </table>
       </div>
     </li>
     <li>
-      <div class="topic">Arduino and its Components</div>
+      <div class="topic">Distributed Computing</div>
       <div class="content">
-        <p><strong>Definition:</strong> Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's a microcontroller board used to build digital devices and interactive objects that can sense and control the physical world.</p>
-       <p><strong>Diagram:</strong></p>
-             <img src="board_description.jpg" alt="Arduino Board Diagram" width="100%">
-        <p><strong>Components:</strong></p>
+        <p>Distributed computing is a field of computer science that studies distributed systems. In these systems, a group of computers works together, appearing to the end-user as a single coherent system. These systems share the load and work in parallel to solve problems.</p>
+        <p><strong>Goals:</strong> Transparency, scalability, resource sharing, reliability.</p>
+        <p><strong>Challenges:</strong> Synchronization, security, fault tolerance, consistency.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Client-Server Architecture</div>
+      <div class="content">
+        <p>A model where client devices send requests to a server, which processes and returns results. Widely used in web services.</p>
+        <img src="clientserver.jpg" alt="Client-Server Architecture Diagram" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Trends in Distributed Computing</div>
+      <div class="content">
+        <p><strong>Cluster Computing:</strong> Multiple computers work together as a single system to solve complex tasks.</p>
+        <p><strong>Grid Computing:</strong> Resources from various locations used for a common goal, handling large-scale computation.</p>
+        <p><strong>Utility Computing:</strong> Pay-per-use model where resources are rented (like electricity usage).</p>
+        <p><strong>Cloud Computing:</strong> Access computing resources via the internet on demand.</p>
+        <img src="trends.jpg" alt="Trends in Distributed Computing" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Virtualisation</div>
+      <div class="content">
+        <p>Virtualisation allows multiple operating systems to run on a single physical machine by creating virtual environments using software like hypervisors. This increases resource utilization and flexibility.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud Definition Framework</div>
+      <div class="content">
+        <img src="cloudframework.jpg" alt="Cloud Framework Diagram">
+        <p>The Cloud Framework includes service and deployment models:</p>
+        <h4>Service Models</h4>
         <ul>
-          <li><strong>USB Port:</strong> Used to upload code and power the board.</li>
-          <li><strong>Power Jack:</strong> Used to power the board with an external power supply.</li>
-          <li><strong>Microcontroller:</strong> The brain of the board (e.g., ATmega328).</li>
-          <li><strong>Digital I/O Pins:</strong> Pins used to read or write digital signals.</li>
-          <li><strong>Analog Input Pins:</strong> Pins used to read analog signals from sensors.</li>
-          <li><strong>Reset Button:</strong> Resets the board.</li>
-          <li><strong>Voltage Regulator:</strong> Controls the voltage to the microcontroller and other components.</li>
+          <li><strong>IaaS (Infrastructure as a Service):</strong> Provides virtual machines, storage, and networks (e.g., AWS EC2).</li>
+          <li><strong>PaaS (Platform as a Service):</strong> Offers tools and services for application development without managing infrastructure (e.g., Google App Engine).</li>
+          <li><strong>SaaS (Software as a Service):</strong> Ready-to-use applications over the internet (e.g., Gmail, Microsoft 365).</li>
+        </ul>
+        <h4>Deployment Models</h4>
+        <ul>
+          <li><strong>Public Cloud:</strong> Services available to anyone over the internet.</li>
+          <li><strong>Private Cloud:</strong> Services maintained on a private network.</li>
+          <li><strong>Hybrid Cloud:</strong> Combines public and private clouds.</li>
+          <li><strong>Community Cloud:</strong> Shared among organizations with similar needs.</li>
         </ul>
       </div>
     </li>
     <li>
-      <div class="topic">Classification of Machine Learning</div>
+      <div class="topic">Cloud for IoT</div>
       <div class="content">
-        <p><strong>1. Supervised Learning:</strong> Algorithms learn from labeled training data. <br><em>Example:</em> House price prediction using historical data.</p>
-        <p><strong>2. Unsupervised Learning:</strong> Algorithms learn from data without labels, finding hidden patterns. <br><em>Example:</em> Customer segmentation in marketing.</p>
-        <p><strong>3. Semi-Supervised Learning:</strong> Uses both labeled and unlabeled data. <br><em>Example:</em> Web page classification with a few labeled examples.</p>
-        <p><strong>4. Reinforcement Learning:</strong> Agents learn by performing actions and receiving rewards or penalties. <br><em>Example:</em> Training a robot to walk.</p>
+        <p>Cloud platforms allow IoT devices to connect, send data, and receive commands. It provides storage, analytics, and visualization tools.</p>
+        <img src="iotarch.jpg" alt="IoT Cloud Architecture" />
+        <p><strong>Management:</strong> Cloud provides tools to manage devices, update firmware, monitor activity, and set security rules.</p>
+        <p><strong>IIoT Platforms:</strong></p>
+        <ul>
+          <li>Remote monitoring and diagnostics</li>
+          <li>Real-time analytics</li>
+          <li>Interoperability with industrial protocols</li>
+          <li>Examples: AWS IoT Core, Azure IoT Hub, Google Cloud IoT</li>
+        </ul>
       </div>
     </li>
     <li>
-      <div class="topic">Difference between IoT, ML and AI</div>
+      <div class="topic">Cloud Providers Comparison</div>
       <div class="content">
         <table>
           <tr>
-            <th>Feature</th>
-            <th>IoT</th>
-            <th>Machine Learning</th>
-            <th>Artificial Intelligence</th>
+            <th>Provider</th>
+            <th>Primary Language</th>
+            <th>Storage</th>
+            <th>Popular Services</th>
           </tr>
           <tr>
-            <td>Purpose</td>
-            <td>Connect devices to share data</td>
-            <td>Learn from data</td>
-            <td>Mimic human intelligence</td>
+            <td>Google App Engine</td>
+            <td>Python, Java, Go</td>
+            <td>Cloud Storage</td>
+            <td>App Hosting, Firebase</td>
           </tr>
           <tr>
-            <td>Input</td>
-            <td>Sensor data</td>
-            <td>Historical/training data</td>
-            <td>Data + Algorithms</td>
+            <td>Microsoft Azure</td>
+            <td>.NET, Java, Python</td>
+            <td>Azure Blob</td>
+            <td>VMs, Azure Functions</td>
           </tr>
           <tr>
-            <td>Output</td>
-            <td>Real-time monitoring/alerts</td>
-            <td>Predictions/decisions</td>
-            <td>Autonomous decision making</td>
-          </tr>
-          <tr>
-            <td>Examples</td>
-            <td>Smart thermostats, wearables</td>
-            <td>Stock price prediction, recommendation systems</td>
-            <td>Self-driving cars, chatbots</td>
+            <td>AWS</td>
+            <td>Java, Python, Node.js</td>
+            <td>S3</td>
+            <td>EC2, Lambda, DynamoDB</td>
           </tr>
         </table>
+      </div>
+    </li>
+    <li>
+      <div class="topic">ThingSpeak & IoT Apps</div>
+      <div class="content">
+        <p><strong>ThingSpeak:</strong> A cloud-based platform for collecting and analyzing sensor data in real time. It supports MATLAB integration and is ideal for prototyping IoT applications.</p>
+        <img src="thingspeak.jpg" alt="ThingSpeak Dashboard">
+        <p><strong>Example IoT Applications:</strong></p>
+        <ul>
+          <li>Smart Homes</li>
+          <li>Smart Farming</li>
+          <li>Health Monitoring</li>
+          <li>Traffic Management</li>
+        </ul>
       </div>
     </li>
   </ul>
