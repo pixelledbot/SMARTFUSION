@@ -36,27 +36,30 @@
     }
 
     summary {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       cursor: pointer;
       list-style: none;
-      outline: none;
       color: #1f2937;
     }
 
-    summary::marker {
+    /* Remove default marker */
+    summary::-webkit-details-marker {
       display: none;
     }
 
-    details[open] summary::after {
-      content: " –";
+    /* Custom + / – icon */
+    summary::after {
+      content: "+";
+      font-size: 1.2rem;
       color: #2563eb;
       font-weight: bold;
     }
 
-    summary::after {
-      content: " +";
-      color: #2563eb;
-      font-weight: bold;
+    details[open] summary::after {
+      content: "–";
     }
 
     p, li {
