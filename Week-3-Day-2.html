@@ -26,35 +26,43 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 15px;
-    }
-
-    ul > li {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    summary {
       font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
     }
 
-    ul > li > ul {
-      margin-top: 10px;
-      padding-left: 20px;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    ul > li > ul > li {
-      background: none;
-      border-left: none;
-      padding: 5px 0;
-      margin: 0;
-      box-shadow: none;
+    summary::after {
+      content: "+";
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    details[open] summary::after {
+      content: "\2013"; /* en dash */
+    }
+
+    details p, details ul li {
       font-size: 1rem;
       color: #374151;
+      margin-top: 10px;
+      margin-bottom: 8px;
     }
 
     a.back {
@@ -81,16 +89,47 @@
 
   <h1>Week 3 - Day 2</h1>
   <h2>Topics Covered</h2>
-  <ul>
-    <li>K-means Clustering Algorithm
-      <ul>
-        <li>Introduction</li>
-        <li>Working</li>
-        <li>How to Choose Value of K (Number of Clusters)</li>
-        <li>Example</li>
-      </ul>
-    </li>
-  </ul>
+
+  <details>
+    <summary>K-means Clustering Algorithm - Introduction</summary>
+    <p>K-means is a popular unsupervised learning algorithm used for clustering similar data points into groups or "clusters." Unlike supervised learning, it doesn't require labeled data. It works by grouping data into <strong>K</strong> clusters based on feature similarity, with each data point belonging to the cluster with the nearest mean (centroid).</p>
+  </details>
+
+  <details>
+    <summary>Working of K-means</summary>
+    <p>The K-means algorithm follows these main steps:</p>
+    <ul>
+      <li>Choose the number of clusters <strong>K</strong>.</li>
+      <li>Initialize <strong>K</strong> centroids randomly from the dataset.</li>
+      <li>Assign each data point to the nearest centroid based on distance (usually Euclidean).</li>
+      <li>Recalculate centroids as the mean of all points in the cluster.</li>
+      <li>Repeat assignment and update steps until centroids stabilize or maximum iterations are reached.</li>
+    </ul>
+    <p>This process minimizes intra-cluster distance and maximizes inter-cluster separation.</p>
+  </details>
+
+  <details>
+    <summary>Choosing the Value of K</summary>
+    <p>Determining the optimal number of clusters <strong>K</strong> is crucial for meaningful clustering. A common method is the <strong>Elbow Method</strong>:</p>
+    <ul>
+      <li>Run K-means for a range of K values.</li>
+      <li>Calculate the Within-Cluster Sum of Squares (WCSS) for each K.</li>
+      <li>Plot K vs WCSS and look for an "elbow" point where the rate of WCSS decrease slows down.</li>
+    </ul>
+    <p>This elbow point is considered the optimal K, balancing accuracy and simplicity.</p>
+  </details>
+
+  <details>
+    <summary>K-means Clustering - Example</summary>
+    <p>Suppose we have a dataset of students with features like study hours and test scores. K-means can group them into performance-based clusters (e.g., high performers, average, low performers).</p>
+    <p>After applying K-means with K=3, we might get three clusters representing:</p>
+    <ul>
+      <li>Cluster 1: High scores, high study hours</li>
+      <li>Cluster 2: Moderate scores and study time</li>
+      <li>Cluster 3: Low scores, low study hours</li>
+    </ul>
+    <p>Each cluster helps educators understand student behavior and target specific interventions.</p>
+  </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
