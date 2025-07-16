@@ -169,7 +169,16 @@
     <li>
       <div class="topic">Virtualisation</div>
       <div class="content">
-        <p>Virtualisation allows multiple operating systems to run on a single physical machine using software like hypervisors. It improves resource utilization and flexibility.</p>
+        <p>Virtualisation is the process of creating a virtual version of a device or resource, such as a server, storage device, network, or even an operating system. It enables a single physical machine to host multiple virtual machines using a hypervisor (like VMware, KVM, VirtualBox, etc.).</p>
+        <p>This improves resource utilization, reduces hardware costs, simplifies management, and enhances scalability in cloud computing environments.</p>
+        <h4>Types of Virtualisation:</h4>
+        <ul>
+          <li><strong>Server Virtualisation:</strong> Splits one physical server into multiple virtual servers. Each virtual server operates independently.</li>
+          <li><strong>Storage Virtualisation:</strong> Combines physical storage from multiple devices into a single logical storage pool.</li>
+          <li><strong>Network Virtualisation:</strong> Creates multiple virtual networks that operate independently on the same physical infrastructure.</li>
+          <li><strong>Desktop Virtualisation:</strong> Hosts user desktop environments on a central server for remote access and control.</li>
+          <li><strong>Application Virtualisation:</strong> Allows applications to run without being installed directly on the user’s operating system.</li>
+        </ul>
       </div>
     </li>
 
@@ -179,16 +188,28 @@
         <img src="cloud-definition-framework.jpg" alt="Cloud Framework Diagram" />
         <h4>Service Models</h4>
         <ul>
-          <li><strong>IaaS:</strong> Infrastructure as a Service (e.g., AWS EC2)</li>
-          <li><strong>PaaS:</strong> Platform as a Service (e.g., Google App Engine)</li>
-          <li><strong>SaaS:</strong> Software as a Service (e.g., Gmail, Microsoft 365)</li>
+          <li>
+            <strong>IaaS (Infrastructure as a Service):</strong>
+            <p>Provides fundamental infrastructure resources like virtual machines, storage, and networks. Users manage operating systems, storage, and deployed applications, but not the physical hardware.</p>
+            <p><strong>Examples:</strong> Amazon EC2, Google Compute Engine, Microsoft Azure VMs</p>
+          </li>
+          <li>
+            <strong>PaaS (Platform as a Service):</strong>
+            <p>Offers a platform and environment for developers to build, test, and deploy applications. It includes tools, libraries, and infrastructure needed for development.</p>
+            <p><strong>Examples:</strong> Google App Engine, Heroku, Microsoft Azure App Services</p>
+          </li>
+          <li>
+            <strong>SaaS (Software as a Service):</strong>
+            <p>Provides ready-to-use applications over the internet. Users only need a browser to access software without managing any infrastructure or platform.</p>
+            <p><strong>Examples:</strong> Gmail, Google Docs, Microsoft 365, Dropbox</p>
+          </li>
         </ul>
         <h4>Deployment Models</h4>
         <ul>
-          <li><strong>Public Cloud</strong></li>
-          <li><strong>Private Cloud</strong></li>
-          <li><strong>Hybrid Cloud</strong></li>
-          <li><strong>Community Cloud</strong></li>
+          <li><strong>Public Cloud:</strong> Services offered over the public internet to anyone (e.g., AWS, Azure).</li>
+          <li><strong>Private Cloud:</strong> Cloud infrastructure dedicated to a single organization, offering more control and security.</li>
+          <li><strong>Hybrid Cloud:</strong> Combines public and private clouds, allowing data and apps to be shared between them.</li>
+          <li><strong>Community Cloud:</strong> Shared by several organizations with similar requirements or concerns (e.g., compliance).</li>
         </ul>
       </div>
     </li>
