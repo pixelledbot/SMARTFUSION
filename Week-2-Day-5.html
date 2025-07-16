@@ -32,7 +32,7 @@
       margin-top: 20px;
     }
 
-    li {
+    li.topic {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
@@ -42,32 +42,14 @@
       font-size: 1.1rem;
     }
 
-    .topic {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    ul.subtopic {
+      margin-top: 10px;
+      padding-left: 20px;
     }
 
-    .topic::after {
-      content: '+';
-      color: #2563eb;
-      font-weight: bold;
-    }
-
-    .topic.active::after {
-      content: '–';
-    }
-
-    .content {
-      display: none;
-      padding-top: 10px;
-      color: #374151;
-      line-height: 1.6;
-    }
-
-    li.open .content {
-      display: block;
+    ul.subtopic li {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
     }
 
     .project {
@@ -86,35 +68,11 @@
       margin-bottom: 5px;
     }
 
-    pre {
-      background: #f3f4f6;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-      font-size: 0.95rem;
-    }
-
-    code {
-      font-family: monospace;
-      white-space: pre-wrap;
-    }
-
-    iframe {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-top: 10px;
-      height: 300px;
-    }
-
-    a {
-      color: #2563eb;
-    }
-
     a.back {
       display: inline-block;
       margin-top: 40px;
       text-decoration: none;
+      color: #2563eb;
       font-weight: bold;
     }
 
@@ -136,102 +94,24 @@
   <h2>Topics Covered</h2>
 
   <ul>
-    <li>
-      <div class="topic">EDA (Exploratory Data Analysis)</div>
-      <div class="content">
-        <p>Exploratory Data Analysis (EDA) is the process of analyzing datasets to summarize their main characteristics, often using visual methods. EDA is crucial for understanding the structure of your data before modeling.</p>
-        <ul>
-          <li>Identify missing values, outliers, and duplicates</li>
-          <li>Get statistical summaries of each feature</li>
-          <li>Understand distributions and relationships using plots</li>
-          <li>Common tools: <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code></li>
-        </ul>
-      </div>
-    </li>
+    <li class="topic">EDA (Exploratory Data Analysis)</li>
   </ul>
 
   <div class="project">
-    <strong>Mini Project 2: Real-Time IoT Data Dashboard</strong>
-    <p>Create a real-time IoT dashboard that plots live sensor values sent from ESP32 to ThingSpeak.</p>
-    <ul>
-      <li>Research real-time data platforms</li>
-      <li>Design system architecture & flowchart</li>
-      <li>Use Wokwi to simulate ESP32 + Sensor</li>
-      <li>Send data to ThingSpeak using HTTP</li>
-      <li>Visualize data using embedded charts</li>
+    <strong>Mini Project 2:</strong>
+    Create a Real-Time IoT Data Dashboard with Graphs
+    <ul class="subtopic">
+      <li>Research</li>
+      <li>Steps</li>
+      <li>Flowchart</li>
     </ul>
   </div>
-
-  <ul>
-    <li>
-      <div class="topic">ESP32 Code (Wokwi)</div>
-      <div class="content">
-        <p>This code reads a simulated sensor value and sends it to ThingSpeak:</p>
-        <pre><code>
-#include &lt;WiFi.h&gt;
-#include &lt;HTTPClient.h&gt;
-
-const char* ssid = "YOUR_WIFI";
-const char* password = "YOUR_PASS";
-const char* server = "http://api.thingspeak.com/update?api_key=YOUR_API_KEY";
-
-void setup() {
-  Serial.begin(115200);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-}
-
-void loop() {
-  if (WiFi.status() == WL_CONNECTED) {
-    HTTPClient http;
-    String url = String(server) + "&field1=" + String(random(25, 40));
-    http.begin(url);
-    int httpCode = http.GET();
-    http.end();
-  }
-  delay(15000);
-}
-        </code></pre>
-      </div>
-    </li>
-
-    <li>
-      <div class="topic">Wokwi Simulation</div>
-      <div class="content">
-        <p>Click below to open the Wokwi simulation for ESP32 with sensor:</p>
-        <a href="https://wokwi.com/projects/your_project_id" target="_blank">Open Wokwi Simulation &rarr;</a>
-      </div>
-    </li>
-
-    <li>
-      <div class="topic">ThingSpeak Dashboard</div>
-      <div class="content">
-        <p>ThingSpeak provides an easy way to visualize real-time data.</p>
-        <a href="https://thingspeak.com/channels/your_channel_id" target="_blank">View Full Channel &rarr;</a>
-        <iframe src="https://thingspeak.com/channels/your_channel_id/charts/1?bgcolor=%23ffffff&color=%232563eb&dynamic=true&type=line&results=60"></iframe>
-      </div>
-    </li>
-  </ul>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
   <footer>
     &copy; 2025 SMARTFUSION | Created by Simran Kaur
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.topic').forEach(topic => {
-        topic.addEventListener('click', () => {
-          topic.classList.toggle('active');
-          topic.parentElement.classList.toggle('open');
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
