@@ -13,25 +13,21 @@
       max-width: 800px;
       margin: auto;
     }
-
     h1 {
       color: #2563eb;
       font-size: 2.2rem;
       margin-bottom: 5px;
     }
-
     h2 {
       font-size: 1.5rem;
       color: #1e40af;
       margin-top: 30px;
     }
-
     ul {
       list-style: none;
       padding-left: 0;
       margin-top: 15px;
     }
-
     li {
       background: #ffffff;
       border-left: 5px solid #2563eb;
@@ -41,35 +37,42 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       font-size: 1.1rem;
     }
-
     .topic {
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .topic::after {
       content: '+';
       color: #2563eb;
       font-weight: bold;
     }
-
     .topic.active::after {
       content: '–';
     }
-
     .content {
       display: none;
       padding-top: 10px;
       color: #374151;
-      line-height: 1.4;
+      line-height: 1.6;
     }
-
     li.open .content {
       display: block;
     }
-
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #e0e7ff;
+    }
     a.back {
       display: inline-block;
       margin-top: 40px;
@@ -77,11 +80,9 @@
       color: #2563eb;
       font-weight: bold;
     }
-
     a.back:hover {
       text-decoration: underline;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -91,49 +92,84 @@
   </style>
 </head>
 <body>
-
   <h1>Week 1 - Day 1</h1>
   <h2>Topics Covered</h2>
   <ul>
     <li>
       <div class="topic">Meaning of SmartFusion</div>
       <div class="content">
-        <p><strong>SmartFusion</strong> is the integration of smart technologies like IoT, AI, and ML to build intelligent systems that sense, process, and act in real-time.</p>
+        <p><strong>MEANING OF SMARTFUSION:</strong> SmartFusion refers to the integration of Smart Technologies — primarily the Internet of Things (IoT), Machine Learning (ML), and Artificial Intelligence (AI) — to create intelligent, automated, and connected solutions. The concept emphasizes the synergy among devices (IoT), data-driven learning (ML), and intelligent decision-making (AI), enabling systems to adapt and respond in real-time.</p>
       </div>
     </li>
-
     <li>
       <div class="topic">Introduction to IoT, ML and AI</div>
       <div class="content">
-        <p><strong>IoT</strong> connects physical devices to the internet. <br>
-           <strong>ML</strong> enables machines to learn from data without being explicitly programmed. <br>
-           <strong>AI</strong> is a broader concept of machines being able to carry out tasks in a way we consider smart.</p>
+        <p><strong>Internet of Things (IoT):</strong> A system of interrelated devices that can collect, transfer, and process data over the internet without human interaction. <br> <em>Example:</em> Smartwatches that track your heartbeat and sync data to your phone.</p>
+        <p><strong>Machine Learning (ML):</strong> A subset of AI that enables machines to learn patterns from historical data and improve predictions over time. <br> <em>Example:</em> Email spam filters learning which emails are spam based on past tagging.</p>
+        <p><strong>Artificial Intelligence (AI):</strong> The simulation of human intelligence in machines. It includes logic, decision-making, perception, and language understanding. <br> <em>Example:</em> Virtual assistants like Siri or Alexa understanding and responding to voice commands.</p>
       </div>
     </li>
-
     <li>
       <div class="topic">Arduino and its Components</div>
       <div class="content">
-        <p><strong>Arduino</strong> is an open-source electronics platform based on easy-to-use hardware and software. It consists of microcontrollers, input/output pins, voltage regulators, and USB interfaces.</p>
+        <p><strong>Definition:</strong> Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's a microcontroller board used to build digital devices and interactive objects that can sense and control the physical world.</p>
+        <p><strong>Diagram:</strong> [Insert Arduino board image here]</p>
+        <p><strong>Components:</strong></p>
+        <ul>
+          <li><strong>USB Port:</strong> Used to upload code and power the board.</li>
+          <li><strong>Power Jack:</strong> Used to power the board with an external power supply.</li>
+          <li><strong>Microcontroller:</strong> The brain of the board (e.g., ATmega328).</li>
+          <li><strong>Digital I/O Pins:</strong> Pins used to read or write digital signals.</li>
+          <li><strong>Analog Input Pins:</strong> Pins used to read analog signals from sensors.</li>
+          <li><strong>Reset Button:</strong> Resets the board.</li>
+          <li><strong>Voltage Regulator:</strong> Controls the voltage to the microcontroller and other components.</li>
+        </ul>
       </div>
     </li>
-
     <li>
       <div class="topic">Classification of Machine Learning</div>
       <div class="content">
-        <p>Machine Learning is classified into: <br>
-        • <strong>Supervised Learning</strong>: Learns from labeled data. <br>
-        • <strong>Unsupervised Learning</strong>: Finds patterns in unlabeled data. <br>
-        • <strong>Reinforcement Learning</strong>: Learns via rewards and punishments based on actions.</p>
+        <p><strong>1. Supervised Learning:</strong> Algorithms learn from labeled training data. <br><em>Example:</em> House price prediction using historical data.</p>
+        <p><strong>2. Unsupervised Learning:</strong> Algorithms learn from data without labels, finding hidden patterns. <br><em>Example:</em> Customer segmentation in marketing.</p>
+        <p><strong>3. Semi-Supervised Learning:</strong> Uses both labeled and unlabeled data. <br><em>Example:</em> Web page classification with a few labeled examples.</p>
+        <p><strong>4. Reinforcement Learning:</strong> Agents learn by performing actions and receiving rewards or penalties. <br><em>Example:</em> Training a robot to walk.</p>
       </div>
     </li>
-
     <li>
       <div class="topic">Difference between IoT, ML and AI</div>
       <div class="content">
-        <p><strong>IoT</strong> is about connectivity and collecting data. <br>
-           <strong>ML</strong> processes and learns from that data. <br>
-           <strong>AI</strong> uses ML and other tools to simulate human-like decision making.</p>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>IoT</th>
+            <th>Machine Learning</th>
+            <th>Artificial Intelligence</th>
+          </tr>
+          <tr>
+            <td>Purpose</td>
+            <td>Connect devices to share data</td>
+            <td>Learn from data</td>
+            <td>Mimic human intelligence</td>
+          </tr>
+          <tr>
+            <td>Input</td>
+            <td>Sensor data</td>
+            <td>Historical/training data</td>
+            <td>Data + Algorithms</td>
+          </tr>
+          <tr>
+            <td>Output</td>
+            <td>Real-time monitoring/alerts</td>
+            <td>Predictions/decisions</td>
+            <td>Autonomous decision making</td>
+          </tr>
+          <tr>
+            <td>Examples</td>
+            <td>Smart thermostats, wearables</td>
+            <td>Stock price prediction, recommendation systems</td>
+            <td>Self-driving cars, chatbots</td>
+          </tr>
+        </table>
       </div>
     </li>
   </ul>
@@ -145,7 +181,6 @@
   </footer>
 
   <script>
-    // Accordion toggle script
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.topic').forEach(topic => {
         topic.addEventListener('click', () => {
@@ -155,6 +190,5 @@
       });
     });
   </script>
-
 </body>
 </html>
