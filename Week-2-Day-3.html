@@ -15,7 +15,7 @@
     }
 
     h1 {
-      color: #2563eb;
+      color: #1e3a8a;
       font-size: 2.2rem;
       margin-bottom: 5px;
     }
@@ -24,15 +24,16 @@
       font-size: 1.5rem;
       color: #1e40af;
       margin-top: 30px;
+      margin-bottom: 20px;
     }
 
     details {
       background: #ffffff;
-      border-left: 5px solid #2563eb;
-      padding: 15px 20px;
+      border: 2px solid #2563eb;
+      border-radius: 10px;
       margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 15px 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     summary {
@@ -41,21 +42,35 @@
       color: #1f2937;
       cursor: pointer;
       outline: none;
+      position: relative;
+      padding-right: 20px;
     }
 
-    summary::-webkit-details-marker {
+    summary::marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
       color: #2563eb;
+      font-weight: bold;
     }
 
-    p, li {
+    details[open] summary::after {
+      content: "–";
+    }
+
+    details p, details ul, details li {
       font-size: 1rem;
       line-height: 1.6;
+      margin-top: 10px;
     }
 
     ul {
       padding-left: 20px;
-      margin-top: 10px;
-      list-style-type: disc;
+      list-style: disc;
     }
 
     a.back {
@@ -85,60 +100,61 @@
 
   <details>
     <summary>Data Preprocessing in Machine Learning</summary>
-    <p>Data preprocessing is a crucial step in the machine learning pipeline. It involves cleaning and transforming raw data into a suitable format for modeling. Without proper preprocessing, even the best algorithms may fail to deliver meaningful results.</p>
-    <p>Steps typically include data cleaning, handling missing values, feature scaling, normalization, and encoding categorical variables.</p>
-  </details>
-
-  <details>
-    <summary>Data Collection</summary>
-    <p>Data collection is the process of gathering raw information from different sources to be used for analysis and model training. It affects both the performance and the generalizability of a model.</p>
+    <p>Data preprocessing prepares raw data for machine learning. It ensures the dataset is clean, complete, and properly formatted to improve model accuracy.</p>
     <ul>
-      <li>Data Sources: CSV files, Excel sheets, APIs, web scraping, databases, and platforms like Kaggle.</li>
-      <li>Importance: Poor-quality data leads to poor-quality models. Both quantity and quality matter.</li>
+      <li>Cleaning data</li>
+      <li>Handling missing values</li>
+      <li>Scaling and normalization</li>
+      <li>Encoding categorical variables</li>
     </ul>
   </details>
 
   <details>
-    <summary>Data Cleaning</summary>
-    <p>This involves detecting and correcting (or removing) inaccurate records from a dataset. Clean data improves the performance and accuracy of models.</p>
+    <summary>Data Collection</summary>
+    <p>Data collection involves gathering relevant information from sources like:</p>
     <ul>
+      <li>CSV and Excel files</li>
+      <li>Online datasets (e.g., Kaggle)</li>
+      <li>APIs and sensors</li>
+    </ul>
+    <p>Good data quality and quantity are essential for accurate models.</p>
+  </details>
+
+  <details>
+    <summary>Data Cleaning</summary>
+    <p>This step corrects or removes incorrect, inconsistent, or duplicate data. Clean data ensures reliable predictions.</p>
+    <ul>
+      <li>Fix typos</li>
       <li>Remove duplicates</li>
-      <li>Correct data entry errors</li>
-      <li>Standardize formats (e.g., date, currency)</li>
+      <li>Standardize formats</li>
     </ul>
   </details>
 
   <details>
     <summary>Handling Missing Values</summary>
-    <p>Real-world datasets often have missing or incomplete data. Handling them properly is essential to avoid biased or incorrect results.</p>
+    <p>Missing values can affect model performance. Options include:</p>
     <ul>
-      <li><strong>Deletion:</strong> Remove rows or columns with too many missing values.</li>
-      <li><strong>Imputation:</strong> Fill missing values using:
-        <ul>
-          <li>Mean or median (for numerical data)</li>
-          <li>Mode (for categorical data)</li>
-        </ul>
-      </li>
-      <li><strong>Flagging:</strong> Create an extra column to indicate missing values for certain features.</li>
+      <li>Remove rows/columns with missing data</li>
+      <li>Fill using mean/median (for numerical values)</li>
+      <li>Use most frequent value (for categorical data)</li>
     </ul>
   </details>
 
   <details>
     <summary>Scaling and Normalization</summary>
-    <p>Scaling ensures that features are on the same scale, which is important for algorithms like KNN, SVM, and neural networks. Normalization adjusts the range of data values.</p>
+    <p>Feature scaling helps models like KNN, SVM, and neural networks perform better by adjusting data to a standard scale.</p>
     <ul>
-      <li><strong>Min-Max Scaling:</strong> Scales data between 0 and 1.</li>
-      <li><strong>Standardization:</strong> Converts data to have zero mean and unit variance.</li>
+      <li><strong>Min-Max Scaling:</strong> Scales between 0 and 1</li>
+      <li><strong>Standardization:</strong> Zero mean, unit variance</li>
     </ul>
   </details>
 
   <details>
     <summary>Python Libraries Used in Preprocessing</summary>
-    <p>Several Python libraries are commonly used to perform preprocessing tasks efficiently and reliably:</p>
     <ul>
-      <li><strong>Pandas:</strong> For data manipulation, reading/writing files, handling missing values, etc.</li>
-      <li><strong>NumPy:</strong> For numerical operations and array handling.</li>
-      <li><strong>Scikit-learn:</strong> For preprocessing functions like scaling, encoding, and imputing.</li>
+      <li><strong>Pandas:</strong> Data manipulation, cleaning, I/O</li>
+      <li><strong>NumPy:</strong> Numerical computations</li>
+      <li><strong>Scikit-learn:</strong> Preprocessing tools like scalers, encoders, imputers</li>
     </ul>
   </details>
 
