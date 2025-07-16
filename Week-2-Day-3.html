@@ -10,12 +10,12 @@
       background-color: #f9fafb;
       color: #1f2937;
       padding: 30px;
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
     }
 
     h1 {
-      color: #1e3a8a;
+      color: #2563eb;
       font-size: 2.2rem;
       margin-bottom: 5px;
     }
@@ -24,53 +24,49 @@
       font-size: 1.5rem;
       color: #1e40af;
       margin-top: 30px;
-      margin-bottom: 20px;
     }
 
     details {
       background: #ffffff;
-      border: 2px solid #2563eb;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      border-left: 5px solid #2563eb;
       padding: 15px 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
 
     summary {
       font-size: 1.1rem;
-      font-weight: normal;
-      color: #1f2937;
       cursor: pointer;
+      list-style: none;
       outline: none;
-      position: relative;
-      padding-right: 20px;
+      color: #1f2937;
     }
 
     summary::marker {
       display: none;
     }
 
-    summary::after {
-      content: "+";
-      position: absolute;
-      right: 0;
+    details[open] summary::after {
+      content: " –";
       color: #2563eb;
       font-weight: bold;
     }
 
-    details[open] summary::after {
-      content: "–";
+    summary::after {
+      content: " +";
+      color: #2563eb;
+      font-weight: bold;
     }
 
-    details p, details ul, details li {
-      font-size: 1rem;
+    p, li {
+      font-size: 1.05rem;
       line-height: 1.6;
-      margin-top: 10px;
     }
 
     ul {
-      padding-left: 20px;
-      list-style: disc;
+      margin-left: 20px;
+      margin-top: 10px;
     }
 
     a.back {
@@ -100,61 +96,71 @@
 
   <details>
     <summary>Data Preprocessing in Machine Learning</summary>
-    <p>Data preprocessing prepares raw data for machine learning. It ensures the dataset is clean, complete, and properly formatted to improve model accuracy.</p>
-    <ul>
-      <li>Cleaning data</li>
-      <li>Handling missing values</li>
-      <li>Scaling and normalization</li>
-      <li>Encoding categorical variables</li>
-    </ul>
+    <p>Data preprocessing is a crucial step in the machine learning pipeline where raw data is transformed into a clean and structured format. This improves the quality of the data and ensures the model can learn effectively. Preprocessing helps reduce noise, handle missing or inconsistent values, and scale features appropriately.</p>
   </details>
 
   <details>
     <summary>Data Collection</summary>
-    <p>Data collection involves gathering relevant information from sources like:</p>
+    <p>Data collection is the initial stage of data preprocessing. It involves gathering data from various sources that will be used to train, validate, and test the machine learning model. Quality data collection ensures the model is both accurate and generalizable.</p>
     <ul>
-      <li>CSV and Excel files</li>
-      <li>Online datasets (e.g., Kaggle)</li>
-      <li>APIs and sensors</li>
+      <li>Acquiring data from:</li>
+      <ul>
+        <li>CSV files: Simple and widely-used tabular data format suitable for structured datasets.</li>
+        <li>Online datasets: Accessible through platforms like <strong>Kaggle</strong>, UCI ML Repository, or Google Datasets. These are often used for training and benchmarking models.</li>
+      </ul>
+      <li>How data quality and quantity impact model performance:
+        <ul>
+          <li>High-quality data leads to better predictions and model accuracy.</li>
+          <li>Large volumes of diverse data help prevent overfitting and improve generalization.</li>
+        </ul>
+      </li>
     </ul>
-    <p>Good data quality and quantity are essential for accurate models.</p>
   </details>
 
   <details>
     <summary>Data Cleaning</summary>
-    <p>This step corrects or removes incorrect, inconsistent, or duplicate data. Clean data ensures reliable predictions.</p>
+    <p>Data cleaning involves identifying and resolving errors, inconsistencies, and missing entries in the dataset to improve model performance.</p>
     <ul>
-      <li>Fix typos</li>
-      <li>Remove duplicates</li>
-      <li>Standardize formats</li>
+      <li>Techniques to handle:</li>
+      <ul>
+        <li>Incomplete data: Filling or removing missing entries.</li>
+        <li>Inaccurate data: Identifying outliers or errors and correcting them.</li>
+        <li>Inconsistent data: Unifying formats, correcting typos, and standardizing units.</li>
+      </ul>
     </ul>
   </details>
 
   <details>
     <summary>Handling Missing Values</summary>
-    <p>Missing values can affect model performance. Options include:</p>
+    <p>Missing values are common in real-world datasets and can negatively affect model learning. Proper techniques help in maintaining the integrity of the dataset.</p>
     <ul>
-      <li>Remove rows/columns with missing data</li>
-      <li>Fill using mean/median (for numerical values)</li>
-      <li>Use most frequent value (for categorical data)</li>
+      <li>Removing missing values: Dropping rows or columns with excessive missing data.</li>
+      <li>Filling missing values:
+        <ul>
+          <li>Using mean for numerical data.</li>
+          <li>Using median or mode based on distribution and outliers.</li>
+        </ul>
+      </li>
+      <li>Detecting missing values: Identifying using methods like <code>isnull()</code> or <code>info()</code> in Pandas.</li>
     </ul>
   </details>
 
   <details>
     <summary>Scaling and Normalization</summary>
-    <p>Feature scaling helps models like KNN, SVM, and neural networks perform better by adjusting data to a standard scale.</p>
+    <p>Scaling transforms data features into a standard range to ensure equal contribution to model training, while normalization adjusts data distribution.</p>
     <ul>
-      <li><strong>Min-Max Scaling:</strong> Scales between 0 and 1</li>
-      <li><strong>Standardization:</strong> Zero mean, unit variance</li>
+      <li><strong>Min-Max Scaling:</strong> Transforms features to a fixed range, typically [0, 1].</li>
+      <li><strong>Standardization:</strong> Adjusts values to have a mean of 0 and standard deviation of 1.</li>
+      <li>Essential for models like SVM, k-NN, and gradient descent-based methods.</li>
     </ul>
   </details>
 
   <details>
     <summary>Python Libraries Used in Preprocessing</summary>
     <ul>
-      <li><strong>Pandas:</strong> Data manipulation, cleaning, I/O</li>
-      <li><strong>NumPy:</strong> Numerical computations</li>
-      <li><strong>Scikit-learn:</strong> Preprocessing tools like scalers, encoders, imputers</li>
+      <li><strong>Pandas:</strong> Data manipulation and analysis tool offering powerful data structures like DataFrames. Used for handling missing values, reading/writing CSVs, and merging datasets.</li>
+      <li><strong>Numpy:</strong> Essential for numerical operations. Offers array operations and is the base of many ML libraries.</li>
+      <li><strong>Scikit-learn:</strong> Offers preprocessing utilities such as imputation, encoding, scaling, and normalization functions used before feeding data into ML models.</li>
     </ul>
   </details>
 
