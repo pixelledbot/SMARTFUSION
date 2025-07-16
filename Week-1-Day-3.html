@@ -9,7 +9,503 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f9fafb;
       color: #1f2937;
+      padding: 30px;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week 1 - Day 3 | SMARTFUSION</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
       padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #2563eb;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #1e40af;
+      margin-top: 30px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+    li {
+      background: #ffffff;
+      border-left: 5px solid #2563eb;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-size: 1.1rem;
+    }
+    .topic {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topic::after {
+      content: '+';
+      color: #2563eb;
+      font-weight: bold;
+    }
+    .topic.active::after {
+      content: '–';
+    }
+    .content {
+      display: none;
+      padding-top: 10px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    li.open .content {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #e0e7ff;
+    }
+    img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+    a.back:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 60px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <h1>Week 1 - Day 3</h1>
+  <h2>Topics Covered</h2>
+  <ul>
+    <li>
+      <div class="topic">Cloud Computing Introduction</div>
+      <div class="content">
+        <p>Cloud computing is a model for delivering computing services like storage, databases, networking, software, analytics, and intelligence over the internet, offering faster innovation, flexible resources, and economies of scale.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Traditional vs Distributed Computing</div>
+      <div class="content">
+        <table>
+          <tr><th>Aspect</th><th>Traditional Computing</th><th>Distributed Computing</th></tr>
+          <tr><td>Structure</td><td>Centralized</td><td>Multiple nodes across networks</td></tr>
+          <tr><td>Scalability</td><td>Limited</td><td>Highly Scalable</td></tr>
+          <tr><td>Failure Handling</td><td>Single point of failure</td><td>Redundant and fault-tolerant</td></tr>
+          <tr><td>Use Cases</td><td>Personal apps, small-scale systems</td><td>Cloud, big data, global services</td></tr>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Distributed Computing</div>
+      <div class="content">
+        <p>Distributed computing is a field of computer science that studies distributed systems. In these systems, a group of computers works together, appearing to the end-user as a single coherent system. These systems share the load and work in parallel to solve problems.</p>
+        <p><strong>Goals:</strong> Transparency, scalability, resource sharing, reliability.</p>
+        <p><strong>Challenges:</strong> Synchronization, security, fault tolerance, consistency.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Client-Server Architecture</div>
+      <div class="content">
+        <p>A model where client devices send requests to a server, which processes and returns results. Widely used in web services.</p>
+        <img src="client-server-architecture.png" alt="Client-Server Architecture Diagram" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Trends in Distributed Computing</div>
+      <div class="content">
+        <p><strong>Cluster Computing:</strong> Multiple computers work together as a single system to solve complex tasks.</p>
+        <p><strong>Grid Computing:</strong> Resources from various locations used for a common goal, handling large-scale computation.</p>
+        <p><strong>Utility Computing:</strong> Pay-per-use model where resources are rented (like electricity usage).</p>
+        <p><strong>Cloud Computing:</strong> Access computing resources via the internet on demand.</p>
+        <img src="distributed-computing-trends.png" alt="Trends in Distributed Computing" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Virtualisation</div>
+      <div class="content">
+        <p>Virtualisation allows multiple operating systems to run on a single physical machine by creating virtual environments using software like hypervisors. This increases resource utilization and flexibility.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud Definition Framework</div>
+      <div class="content">
+        <img src="cloud-definition-framework.png" alt="Cloud Framework Diagram">
+        <p>The Cloud Framework includes service and deployment models:</p>
+        <h4>Service Models</h4>
+        <ul>
+          <li><strong>IaaS (Infrastructure as a Service):</strong> Provides virtual machines, storage, and networks (e.g., AWS EC2).</li>
+          <li><strong>PaaS (Platform as a Service):</strong> Offers tools and services for application development without managing infrastructure (e.g., Google App Engine).</li>
+          <li><strong>SaaS (Software as a Service):</strong> Ready-to-use applications over the internet (e.g., Gmail, Microsoft 365).</li>
+        </ul>
+        <h4>Deployment Models</h4>
+        <ul>
+          <li><strong>Public Cloud:</strong> Services available to anyone over the internet.</li>
+          <li><strong>Private Cloud:</strong> Services maintained on a private network.</li>
+          <li><strong>Hybrid Cloud:</strong> Combines public and private clouds.</li>
+          <li><strong>Community Cloud:</strong> Shared among organizations with similar needs.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud for IoT</div>
+      <div class="content">
+        <p>Cloud platforms allow IoT devices to connect, send data, and receive commands. It provides storage, analytics, and visualization tools.</p>
+        <img src="iot-cloud-architecture.png" alt="IoT Cloud Architecture" />
+        <p><strong>Management:</strong> Cloud provides tools to manage devices, update firmware, monitor activity, and set security rules.</p>
+        <p><strong>IIoT Platforms:</strong></p>
+        <ul>
+          <li>Remote monitoring and diagnostics</li>
+          <li>Real-time analytics</li>
+          <li>Interoperability with industrial protocols</li>
+          <li>Examples: AWS IoT Core, Azure IoT Hub, Google Cloud IoT</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud Providers Comparison</div>
+      <div class="content">
+        <table>
+          <tr>
+            <th>Provider</th>
+            <th>Primary Language</th>
+            <th>Storage</th>
+            <th>Popular Services</th>
+          </tr>
+          <tr>
+            <td>Google App Engine</td>
+            <td>Python, Java, Go</td>
+            <td>Cloud Storage</td>
+            <td>App Hosting, Firebase</td>
+          </tr>
+          <tr>
+            <td>Microsoft Azure</td>
+            <td>.NET, Java, Python</td>
+            <td>Azure Blob</td>
+            <td>VMs, Azure Functions</td>
+          </tr>
+          <tr>
+            <td>AWS</td>
+            <td>Java, Python, Node.js</td>
+            <td>S3</td>
+            <td>EC2, Lambda, DynamoDB</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="topic">ThingSpeak & IoT Apps</div>
+      <div class="content">
+        <p><strong>ThingSpeak:</strong> A cloud-based platform for collecting and analyzing sensor data in real time. It supports MATLAB integration and is ideal for prototyping IoT applications.</p>
+        <img src="thingspeak-dashboard.png" alt="ThingSpeak Dashboard">
+        <p><strong>Example IoT Applications:</strong></p>
+        <ul>
+          <li>Smart Homes</li>
+          <li>Smart Farming</li>
+          <li>Health Monitoring</li>
+          <li>Traffic Management</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <a class="back" href="index.html">&larr; Back to Home</a>
+  <footer>
+    &copy; 2025 SMARTFUSION | Created by Simran Kaur
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.topic').forEach(topic => {
+        topic.addEventListener('click', () => {
+          topic.classList.toggle('active');
+          topic.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week 1 - Day 3 | SMARTFUSION</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #2563eb;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #1e40af;
+      margin-top: 30px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+    li {
+      background: #ffffff;
+      border-left: 5px solid #2563eb;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-size: 1.1rem;
+    }
+    .topic {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topic::after {
+      content: '+';
+      color: #2563eb;
+      font-weight: bold;
+    }
+    .topic.active::after {
+      content: '–';
+    }
+    .content {
+      display: none;
+      padding-top: 10px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    li.open .content {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #e0e7ff;
+    }
+    img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+    a.back:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 60px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <h1>Week 1 - Day 3</h1>
+  <h2>Topics Covered</h2>
+  <ul>
+    <li>
+      <div class="topic">Cloud Computing Introduction</div>
+      <div class="content">
+        <p>Cloud computing is a model for delivering computing services like storage, databases, networking, software, analytics, and intelligence over the internet, offering faster innovation, flexible resources, and economies of scale.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Traditional vs Distributed Computing</div>
+      <div class="content">
+        <table>
+          <tr><th>Aspect</th><th>Traditional Computing</th><th>Distributed Computing</th></tr>
+          <tr><td>Structure</td><td>Centralized</td><td>Multiple nodes across networks</td></tr>
+          <tr><td>Scalability</td><td>Limited</td><td>Highly Scalable</td></tr>
+          <tr><td>Failure Handling</td><td>Single point of failure</td><td>Redundant and fault-tolerant</td></tr>
+          <tr><td>Use Cases</td><td>Personal apps, small-scale systems</td><td>Cloud, big data, global services</td></tr>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Distributed Computing</div>
+      <div class="content">
+        <p>Distributed computing is a field of computer science that studies distributed systems. In these systems, a group of computers works together, appearing to the end-user as a single coherent system. These systems share the load and work in parallel to solve problems.</p>
+        <p><strong>Goals:</strong> Transparency, scalability, resource sharing, reliability.</p>
+        <p><strong>Challenges:</strong> Synchronization, security, fault tolerance, consistency.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Client-Server Architecture</div>
+      <div class="content">
+        <p>A model where client devices send requests to a server, which processes and returns results. Widely used in web services.</p>
+        <img src="clientserver.jpg" alt="Client-Server Architecture Diagram" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Trends in Distributed Computing</div>
+      <div class="content">
+        <p><strong>Cluster Computing:</strong> Multiple computers work together as a single system to solve complex tasks.</p>
+        <p><strong>Grid Computing:</strong> Resources from various locations used for a common goal, handling large-scale computation.</p>
+        <p><strong>Utility Computing:</strong> Pay-per-use model where resources are rented (like electricity usage).</p>
+        <p><strong>Cloud Computing:</strong> Access computing resources via the internet on demand.</p>
+        <img src="trends.jpg" alt="Trends in Distributed Computing" />
+      </div>
+    </li>
+    <li>
+      <div class="topic">Virtualisation</div>
+      <div class="content">
+        <p>Virtualisation allows multiple operating systems to run on a single physical machine by creating virtual environments using software like hypervisors. This increases resource utilization and flexibility.</p>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud Definition Framework</div>
+      <div class="content">
+        <img src="cloudframework.jpg" alt="Cloud Framework Diagram">
+        <p>The Cloud Framework includes service and deployment models:</p>
+        <h4>Service Models</h4>
+        <ul>
+          <li><strong>IaaS (Infrastructure as a Service):</strong> Provides virtual machines, storage, and networks (e.g., AWS EC2).</li>
+          <li><strong>PaaS (Platform as a Service):</strong> Offers tools and services for application development without managing infrastructure (e.g., Google App Engine).</li>
+          <li><strong>SaaS (Software as a Service):</strong> Ready-to-use applications over the internet (e.g., Gmail, Microsoft 365).</li>
+        </ul>
+        <h4>Deployment Models</h4>
+        <ul>
+          <li><strong>Public Cloud:</strong> Services available to anyone over the internet.</li>
+          <li><strong>Private Cloud:</strong> Services maintained on a private network.</li>
+          <li><strong>Hybrid Cloud:</strong> Combines public and private clouds.</li>
+          <li><strong>Community Cloud:</strong> Shared among organizations with similar needs.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud for IoT</div>
+      <div class="content">
+        <p>Cloud platforms allow IoT devices to connect, send data, and receive commands. It provides storage, analytics, and visualization tools.</p>
+        <img src="iotarch.jpg" alt="IoT Cloud Architecture" />
+        <p><strong>Management:</strong> Cloud provides tools to manage devices, update firmware, monitor activity, and set security rules.</p>
+        <p><strong>IIoT Platforms:</strong></p>
+        <ul>
+          <li>Remote monitoring and diagnostics</li>
+          <li>Real-time analytics</li>
+          <li>Interoperability with industrial protocols</li>
+          <li>Examples: AWS IoT Core, Azure IoT Hub, Google Cloud IoT</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="topic">Cloud Providers Comparison</div>
+      <div class="content">
+        <table>
+          <tr>
+            <th>Provider</th>
+            <th>Primary Language</th>
+            <th>Storage</th>
+            <th>Popular Services</th>
+          </tr>
+          <tr>
+            <td>Google App Engine</td>
+            <td>Python, Java, Go</td>
+            <td>Cloud Storage</td>
+            <td>App Hosting, Firebase</td>
+          </tr>
+          <tr>
+            <td>Microsoft Azure</td>
+            <td>.NET, Java, Python</td>
+            <td>Azure Blob</td>
+            <td>VMs, Azure Functions</td>
+          </tr>
+          <tr>
+            <td>AWS</td>
+            <td>Java, Python, Node.js</td>
+            <td>S3</td>
+            <td>EC2, Lambda, DynamoDB</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="topic">ThingSpeak & IoT Apps</div>
+      <div class="content">
+        <p><strong>ThingSpeak:</strong> A cloud-based platform for collecting and analyzing sensor data in real time. It supports MATLAB integration and is ideal for prototyping IoT applications.</p>
+        <img src="thingspeak.jpg" alt="ThingSpeak Dashboard">
+        <p><strong>Example IoT Applications:</strong></p>
+        <ul>
+          <li>Smart Homes</li>
+          <li>Smart Farming</li>
+          <li>Health Monitoring</li>
+          <li>Traffic Management</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <a class="back" href="index.html">&larr; Back to Home</a>
+  <footer>
+    &copy; 2025 SMARTFUSION | Created by Simran Kaur
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.topic').forEach(topic => {
+        topic.addEventListener('click', () => {
+          topic.classList.toggle('active');
+          topic.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
       max-width: 850px;
       margin: auto;
     }
