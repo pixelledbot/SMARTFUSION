@@ -68,11 +68,35 @@
       margin-bottom: 5px;
     }
 
+    pre {
+      background: #f3f4f6;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
     a.back {
       display: inline-block;
       margin-top: 40px;
       text-decoration: none;
-      color: #2563eb;
       font-weight: bold;
     }
 
@@ -94,17 +118,150 @@
   <h2>Topics Covered</h2>
 
   <ul>
-    <li class="topic">EDA (Exploratory Data Analysis)</li>
+    <li class="topic">
+      <strong>EDA (Exploratory Data Analysis)</strong>
+      <div>
+        <p>Exploratory Data Analysis (EDA) is a critical step in the data science process that involves examining datasets to uncover patterns, spot anomalies, test hypotheses, and check assumptions using summary statistics and graphical representations.</p>
+        <p><strong>Key Goals of EDA:</strong></p>
+        <ul class="subtopic">
+          <li>Understand data distribution</li>
+          <li>Detect missing or incorrect data</li>
+          <li>Identify relationships and correlations</li>
+          <li>Determine variable importance</li>
+        </ul>
+        <p><strong>Tools commonly used:</strong> <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code></p>
+        <p><strong>Example Tasks:</strong></p>
+        <ul class="subtopic">
+          <li>Plotting histograms to view data spread</li>
+          <li>Using box plots to check outliers</li>
+          <li>Creating pair plots to visualize multivariate relationships</li>
+        </ul>
+      </div>
+    </li>
   </ul>
 
   <div class="project">
-    <strong>Mini Project 2:</strong>
-    Create a Real-Time IoT Data Dashboard with Graphs
+    <strong>Mini Project 2: Real-Time IoT Data Dashboard with Graphs</strong>
+    <p>This project demonstrates how to simulate sensor data and visualize it in real-time using ThingSpeak and a custom dashboard.</p>
+
+    <h4>Research</h4>
     <ul class="subtopic">
-      <li>Research</li>
-      <li>Steps</li>
-      <li>Flowchart</li>
+      <li>Understand how IoT devices send data to the cloud</li>
+      <li>Learn about ThingSpeak as an IoT analytics platform</li>
+      <li>Explore how ESP32 interacts with HTTP APIs</li>
+      <li>Study how to embed charts or create custom dashboards</li>
     </ul>
+
+    <h4>Steps</h4>
+    <ul class="subtopic">
+      <li>Create a ThingSpeak channel and note the API key</li>
+      <li>Write ESP32 code to send random/sensor data every 15s</li>
+      <li>Use Wokwi to simulate the ESP32 + sensor</li>
+      <li>Embed ThingSpeak chart in HTML</li>
+      <li>Optionally create your own dashboard using JavaScript</li>
+    </ul>
+
+    <h4>Flowchart</h4>
+    <ul class="subtopic">
+      <li>ESP32 (Sensor) → WiFi → HTTP Request → ThingSpeak Channel</li>
+      <li>ThingSpeak → Stores & Graphs Data</li>
+      <li>Dashboard → Embeds or Fetches Real-Time Data</li>
+    </ul>
+
+    <h4>Wokwi Simulation</h4>
+    <a href="https://wokwi.com/projects/435735372866892801" target="_blank">Open Wokwi Project &rarr;</a>
+
+    <h4>ThingSpeak Channel</h4>
+    <a href="https://thingspeak.mathworks.com/channels/3003134" target="_blank">View ThingSpeak Channel &rarr;</a>
+
+    <h4>Code for Dashboard :</h4>
+    <pre><code>
+import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+import plotly.graph_objs as go
+import requests
+
+# ThingSpeak Info
+CHANNEL_ID = '3003134'  
+READ_API_KEY = 'EYF56XGVASJ9QUPS'  
+URL = f'https://api.thingspeak.com/channels/3003134/feeds.json?api_key=EYF56XGVASJ9QUPS&results=50'
+
+# Initialize Dash App
+app = dash.Dash(__name__)
+app.title = "ThingSpeak Real-Time Dashboard"
+
+# Layout
+app.layout = html.Div([
+    html.H2("Live Sensor Dashboard from ThingSpeak", style={'textAlign': 'center'}),
+
+    html.Div([
+        html.Div([
+            html.H4("Temperature (°C)"),
+            html.Div(id='temp-display', style={'fontSize': 24}),
+        ]),
+        html.Div([
+            html.H4("Humidity (%)"),
+            html.Div(id='humidity-display', style={'fontSize': 24}),
+        ])
+    ], style={'display': 'flex', 'justifyContent': 'space-around'}),
+
+    dcc.Graph(id='temp-graph'),
+    dcc.Graph(id='humidity-graph'),
+
+    dcc.Interval(
+        id='interval-component',
+        interval=5 * 1000,  # 5 seconds
+        n_intervals=0
+    )
+])
+
+# Callback to update dashboard
+@app.callback(
+    [Output('temp-graph', 'figure'),
+     Output('humidity-graph', 'figure'),
+     Output('temp-display', 'children'),
+     Output('humidity-display', 'children')],
+    [Input('interval-component', 'n_intervals')]
+)
+def update_dashboard(n):
+    try:
+        response = requests.get(URL)
+        data = response.json()['feeds']
+
+        times = [entry['created_at'][11:19] for entry in data]
+        temps = [float(entry['field1']) if entry['field1'] else None for entry in data]
+        hums = [float(entry['field2']) if entry['field2'] else None for entry in data]
+
+        # Temperature graph
+        temp_fig = go.Figure(data=[go.Scatter(x=times, y=temps, mode='lines+markers', name='Temp')])
+        temp_fig.update_layout(title='Temperature Over Time', xaxis_title='Time', yaxis_title='°C')
+
+        # Humidity graph
+        hum_fig = go.Figure(data=[go.Scatter(x=times, y=hums, mode='lines+markers', name='Humidity')])
+        hum_fig.update_layout(title='Humidity Over Time', xaxis_title='Time', yaxis_title='%')
+
+        # Latest values
+        latest_temp = f"{temps[-1]:.2f} °C" if temps[-1] is not None else "N/A"
+        latest_hum = f"{hums[-1]:.2f} %" if hums[-1] is not None else "N/A"
+
+        return temp_fig, hum_fig, latest_temp, latest_hum
+
+    except Exception as e:
+        print("Error fetching data:", e)
+        return go.Figure(), go.Figure(), "Error", "Error"
+
+# Run the server
+if __name__ == '__main__':
+    app.run(debug=True)  
+
+    </code></pre>
+
+    <h4>ThingSpeak Embedded Dashboard</h4>
+    <iframe src="https://thingspeak.com/channels/3003134/charts/1?bgcolor=%23ffffff&color=%232563eb&dynamic=true&type=line&results=60"></iframe>
+
+    <h4>Custom HTML Dashboard Link</h4>
+    <p><a href="http://127.0.0.1:8050/" target="_blank">View Custom Dashboard &rarr;</a></p>
   </div>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
