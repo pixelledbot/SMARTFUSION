@@ -26,36 +26,48 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
-
-    li.topic {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      font-size: 1.1rem;
     }
 
-    ul.subtopic {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
-
-    ul.subtopic li {
-      margin-bottom: 8px;
+    summary {
       font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      list-style: none;
+      color: #1f2937;
     }
 
-    ul.subsub {
-      margin-top: 5px;
-      padding-left: 20px;
-      font-size: 1rem;
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    p, li {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
     }
 
     a.back {
@@ -83,44 +95,49 @@
   <h1>Week 2 - Day 4</h1>
   <h2>Topics Covered</h2>
 
-  <ul>
-    <li class="topic">Data Visualization
-      <ul class="subtopic">
-        <li>Libraries used:
-          <ul class="subsub">
-            <li>matplotlib (pyplot)</li>
-            <li>seaborn</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+  <details>
+    <summary>Data Visualization</summary>
+    <p>Data visualization is the process of representing information and data using visual elements like charts, graphs, and maps. It helps in identifying patterns, trends, and outliers in large datasets, making it easier to interpret and communicate findings effectively.</p>
+    <p><strong>Libraries commonly used:</strong></p>
+    <ul>
+      <li><strong>Matplotlib (pyplot):</strong> A versatile plotting library that allows users to create static, animated, and interactive visualizations.</li>
+      <li><strong>Seaborn:</strong> Built on top of matplotlib, it provides a high-level interface for drawing attractive and informative statistical graphics.</li>
+    </ul>
+  </details>
 
-    <li class="topic">Graphs
-      <ul class="subtopic">
-        <li>Line Graph (time, sequence)</li>
-        <li>Bar Graph (compare different categories)</li>
-        <li>Pie Chart (show % share)</li>
-        <li>Scatter Plots (relationship between variables)</li>
-        <li>Histogram (distribution of data)</li>
-      </ul>
-    </li>
+  <details>
+    <summary>Graphs</summary>
+    <p>Graphs are key tools in data visualization that help represent numerical data visually. Various graph types are used depending on the kind of data and the insights needed.</p>
+    <ul>
+      <li><strong>Line Graph:</strong> Ideal for showing trends over time or sequence-based data like stock prices or sensor readings.</li>
+      <li><strong>Bar Graph:</strong> Useful for comparing different categories such as sales by region or frequency of items.</li>
+      <li><strong>Pie Chart:</strong> Displays proportions or percentages of a whole, useful for showing composition of data like budget allocations.</li>
+      <li><strong>Scatter Plot:</strong> Used to examine relationships between two variables, identifying correlations or clustering.</li>
+      <li><strong>Histogram:</strong> Shows the distribution of numerical data, especially useful for understanding data spread and skewness.</li>
+    </ul>
+  </details>
 
-    <li class="topic">‘tips’ Dataset</li>
+  <details>
+    <summary>'tips' Dataset</summary>
+    <p>The <code>tips</code> dataset is a small, commonly used dataset in Seaborn. It contains information about the total bill, tip amount, gender, day, time, and whether the customer was a smoker. It's used for demonstrating visualizations, statistical analysis, and EDA tasks in a straightforward and intuitive way.</p>
+  </details>
 
-    <li class="topic">Real-Time Data Plotting
-      <ul class="subtopic">
-        <li>Libraries used:
-          <ul class="subsub">
-            <li>random (to simulate random data values)</li>
-            <li>matplotlib</li>
-            <li>time (to measure time and create time delays)</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+  <details>
+    <summary>Real-Time Data Plotting</summary>
+    <p>Real-time data plotting involves continuously updating a graph as new data is received. It is particularly useful in monitoring applications like IoT devices or live analytics dashboards.</p>
+    <p><strong>Libraries and tools used:</strong></p>
+    <ul>
+      <li><strong>random:</strong> Simulates streaming or fluctuating values for plotting demonstrations.</li>
+      <li><strong>matplotlib:</strong> Capable of updating visual plots dynamically using animation and loops.</li>
+      <li><strong>time:</strong> Used to simulate time intervals and delays to mimic real-world data flow.</li>
+    </ul>
+  </details>
 
-    <li class="topic">Introduction to EDA (Exploratory Data Analysis) - <em>Homework</em></li>
-  </ul>
+  <details>
+    <summary>Introduction to EDA (Exploratory Data Analysis) - <em>Homework</em></summary>
+    <p>Exploratory Data Analysis (EDA) is a fundamental step in data science and machine learning workflows. It involves visually and statistically summarizing the main characteristics of a dataset before applying modeling techniques. EDA helps uncover patterns, spot anomalies, test assumptions, and determine relationships between variables.</p>
+   
+  </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
