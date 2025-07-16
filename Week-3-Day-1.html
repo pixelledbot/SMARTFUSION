@@ -26,35 +26,43 @@
       margin-top: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 15px;
-    }
-
-    ul > li {
+    details {
       background: #ffffff;
       border-left: 5px solid #2563eb;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    summary {
       font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
     }
 
-    ul > li > ul {
-      margin-top: 10px;
-      padding-left: 20px;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    ul > li > ul > li {
-      background: none;
-      border-left: none;
-      padding: 5px 0;
-      margin: 0;
-      box-shadow: none;
+    summary::after {
+      content: "+";
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    details[open] summary::after {
+      content: "\2013"; /* en dash */
+    }
+
+    details p, details ul li {
       font-size: 1rem;
       color: #374151;
+      margin-top: 10px;
+      margin-bottom: 8px;
     }
 
     a.back {
@@ -81,24 +89,64 @@
 
   <h1>Week 1 - Day 2</h1>
   <h2>Topics Covered</h2>
-  <ul>
-    <li>Machine Learning</li>
-    <li>Applications of Machine Learning</li>
-    <li>Training and Testing Phase</li>
-    <li>Types of Machine Learning:
-      <ul>
-        <li>Supervised Learning (Regression and Classification)</li>
-        <li>Unsupervised Learning</li>
-        <li>Reinforcement Learning</li>
-      </ul>
-    </li>
-    <li>Algorithms:
-      <ul>
-        <li>Linear Regression</li>
-        <!-- Add more algorithms here if needed -->
-      </ul>
-    </li>
-  </ul>
+
+  <details>
+    <summary>Machine Learning</summary>
+    <p>Machine Learning is a subset of artificial intelligence that enables systems to learn from data, identify patterns, and make decisions with minimal human intervention. It allows computers to improve their performance on tasks by learning from experience rather than being explicitly programmed. ML models can adapt when exposed to new data, making them powerful for a wide range of applications.</p>
+  </details>
+
+  <details>
+    <summary>Applications of Machine Learning</summary>
+    <p>Machine Learning is used across various domains:</p>
+    <ul>
+      <li>Recommendation systems (e.g., Netflix, Amazon)</li>
+      <li>Image and speech recognition (e.g., facial recognition, Siri)</li>
+      <li>Fraud detection in finance</li>
+      <li>Self-driving cars and robotics</li>
+      <li>Medical diagnosis and drug discovery</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Training and Testing Phase</summary>
+    <p>Machine Learning involves two main phases:</p>
+    <ul>
+      <li><strong>Training Phase:</strong> The model is trained on a labeled dataset. It uses algorithms to analyze the data, learn the relationships between inputs and outputs, and build a predictive model.</li>
+      <li><strong>Testing Phase:</strong> The model's performance is validated using unseen data to measure how well it generalizes. Metrics such as accuracy, precision, recall, or RMSE are used for evaluation depending on the problem type.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Types of Machine Learning</summary>
+    <ul>
+      <li><strong>Supervised Learning:</strong> The model is trained on labeled data. Tasks include:
+        <ul>
+          <li>Regression – Predicting continuous values (e.g., house prices)</li>
+          <li>Classification – Predicting categories (e.g., spam vs. not spam)</li>
+        </ul>
+      </li>
+      <li><strong>Unsupervised Learning:</strong> The model explores hidden patterns in data without labels. Example: clustering customer segments.</li>
+      <li><strong>Reinforcement Learning:</strong> The model learns through trial and error, receiving rewards or penalties for actions, commonly used in gaming and robotics.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Algorithms</summary>
+    <ul>
+      <li><strong>Linear Regression:</strong> Linear Regression is one of the simplest and most widely used algorithms in supervised learning. It models the relationship between a dependent variable (target) and one or more independent variables (features) using a straight line. The line is represented by the equation:
+        <pre><code>y = mx + c</code></pre>
+        where <code>y</code> is the predicted value, <code>m</code> is the slope, <code>x</code> is the feature, and <code>c</code> is the intercept.
+        <br><br>
+        The algorithm tries to minimize the difference between the actual and predicted values using a method called "least squares." It is commonly used in applications such as:
+        <ul>
+          <li>Predicting housing prices based on area, location, and number of rooms</li>
+          <li>Forecasting sales based on advertising spend</li>
+          <li>Estimating crop yield based on rainfall and temperature</li>
+        </ul>
+        While easy to implement and interpret, Linear Regression assumes a linear relationship and can struggle with complex, non-linear patterns unless extended into techniques like polynomial regression.
+      </li>
+    </ul>
+  </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 
