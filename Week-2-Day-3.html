@@ -33,45 +33,29 @@
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      font-size: 1.1rem;
     }
 
     summary {
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: #1f2937;
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style: none;
-      color: #2563eb;
+      outline: none;
     }
 
     summary::-webkit-details-marker {
-      display: none;
+      color: #2563eb;
     }
 
-    summary::after {
-      content: '+';
-      font-weight: bold;
-    }
-
-    details[open] summary::after {
-      content: '–';
-    }
-
-    details > div {
-      margin-top: 10px;
+    p, li {
+      font-size: 1rem;
       line-height: 1.6;
-      color: #374151;
     }
 
     ul {
-      padding-left: 1.2rem;
+      padding-left: 20px;
       margin-top: 10px;
-    }
-
-    ul li {
-      margin-bottom: 5px;
+      list-style-type: disc;
     }
 
     a.back {
@@ -101,73 +85,61 @@
 
   <details>
     <summary>Data Preprocessing in Machine Learning</summary>
-    <div>
-      <p>Data preprocessing is a crucial step in the machine learning pipeline. It ensures that the data is clean, consistent, and suitable for training algorithms, improving model accuracy and efficiency.</p>
-    </div>
+    <p>Data preprocessing is a crucial step in the machine learning pipeline. It involves cleaning and transforming raw data into a suitable format for modeling. Without proper preprocessing, even the best algorithms may fail to deliver meaningful results.</p>
+    <p>Steps typically include data cleaning, handling missing values, feature scaling, normalization, and encoding categorical variables.</p>
   </details>
 
   <details>
     <summary>Data Collection</summary>
-    <div>
-      <p>Data is gathered from various sources and formatted into structured datasets. Key sources include:</p>
-      <ul>
-        <li><strong>CSV files:</strong> Widely used format for tabular data.</li>
-        <li><strong>Online datasets:</strong> Websites like Kaggle provide public datasets for various ML tasks.</li>
-      </ul>
-      <p><strong>Importance:</strong> The quantity and quality of the collected data directly affect model accuracy, learning, and generalization.</p>
-    </div>
+    <p>Data collection is the process of gathering raw information from different sources to be used for analysis and model training. It affects both the performance and the generalizability of a model.</p>
+    <ul>
+      <li>Data Sources: CSV files, Excel sheets, APIs, web scraping, databases, and platforms like Kaggle.</li>
+      <li>Importance: Poor-quality data leads to poor-quality models. Both quantity and quality matter.</li>
+    </ul>
   </details>
 
   <details>
     <summary>Data Cleaning</summary>
-    <div>
-      <p>Cleaning the dataset involves fixing or removing incorrect, incomplete, or duplicate data entries.</p>
-      <ul>
-        <li><strong>Incomplete data:</strong> Missing fields or values.</li>
-        <li><strong>Inaccurate data:</strong> Errors or incorrect measurements.</li>
-        <li><strong>Inconsistent data:</strong> Different formats or mismatched categories.</li>
-      </ul>
-    </div>
+    <p>This involves detecting and correcting (or removing) inaccurate records from a dataset. Clean data improves the performance and accuracy of models.</p>
+    <ul>
+      <li>Remove duplicates</li>
+      <li>Correct data entry errors</li>
+      <li>Standardize formats (e.g., date, currency)</li>
+    </ul>
   </details>
 
   <details>
     <summary>Handling Missing Values</summary>
-    <div>
-      <p>Techniques to deal with null or undefined data entries:</p>
-      <ul>
-        <li><strong>Dropping rows:</strong> Remove rows with missing values if the dataset is large.</li>
-        <li><strong>Filling:</strong> Replace missing data with:
-          <ul>
-            <li>Mean value</li>
-            <li>Median value</li>
-            <li>Constant placeholder</li>
-          </ul>
-        </li>
-        <li><strong>Detection:</strong> Using functions like <code>isnull()</code> or <code>isna()</code> in Python (Pandas).</li>
-      </ul>
-    </div>
+    <p>Real-world datasets often have missing or incomplete data. Handling them properly is essential to avoid biased or incorrect results.</p>
+    <ul>
+      <li><strong>Deletion:</strong> Remove rows or columns with too many missing values.</li>
+      <li><strong>Imputation:</strong> Fill missing values using:
+        <ul>
+          <li>Mean or median (for numerical data)</li>
+          <li>Mode (for categorical data)</li>
+        </ul>
+      </li>
+      <li><strong>Flagging:</strong> Create an extra column to indicate missing values for certain features.</li>
+    </ul>
   </details>
 
   <details>
     <summary>Scaling and Normalization</summary>
-    <div>
-      <p>Brings features into the same scale to prevent dominance of larger-scale variables. Types include:</p>
-      <ul>
-        <li><strong>Standardization (Z-score):</strong> Centers around the mean with unit variance.</li>
-        <li><strong>Min-Max Normalization:</strong> Scales values between 0 and 1.</li>
-      </ul>
-    </div>
+    <p>Scaling ensures that features are on the same scale, which is important for algorithms like KNN, SVM, and neural networks. Normalization adjusts the range of data values.</p>
+    <ul>
+      <li><strong>Min-Max Scaling:</strong> Scales data between 0 and 1.</li>
+      <li><strong>Standardization:</strong> Converts data to have zero mean and unit variance.</li>
+    </ul>
   </details>
 
   <details>
     <summary>Python Libraries Used in Preprocessing</summary>
-    <div>
-      <ul>
-        <li><strong>Pandas:</strong> For data manipulation, cleaning, and analysis.</li>
-        <li><strong>Numpy:</strong> For numerical operations and handling arrays.</li>
-        <li><strong>Scikit-learn:</strong> For preprocessing utilities like scaling, encoding, splitting data.</li>
-      </ul>
-    </div>
+    <p>Several Python libraries are commonly used to perform preprocessing tasks efficiently and reliably:</p>
+    <ul>
+      <li><strong>Pandas:</strong> For data manipulation, reading/writing files, handling missing values, etc.</li>
+      <li><strong>NumPy:</strong> For numerical operations and array handling.</li>
+      <li><strong>Scikit-learn:</strong> For preprocessing functions like scaling, encoding, and imputing.</li>
+    </ul>
   </details>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
