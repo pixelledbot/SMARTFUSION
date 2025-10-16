@@ -175,22 +175,19 @@
       aspect-ratio: 4 / 3;
     }
 
-    /* Certificate box styles */
-    .certificate-box {
+    /* Certificate styled like project card */
+    .project.certificate-box {
       text-align: center;
-      cursor: default;
     }
 
-    .certificate-box img {
-      max-width: 300px;
+    .project.certificate-box img {
+      max-width: 400px;
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .certificate-box img:hover {
-      transform: scale(1.05);
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
     }
 
     footer {
@@ -207,8 +204,8 @@
       .week, .project, .gallery {
         padding: 30px 50px;
       }
-      .certificate-box img {
-        max-width: 350px;
+      .project.certificate-box img {
+        max-width: 450px;
       }
     }
   </style>
@@ -255,11 +252,9 @@
       <div class="day"><a href="Week-3-Day-3.html">Day 3</a></div>
     </div>
 
-   <section class="Certificate">
+    <section class="project certificate-box">
       <h2>Certificate</h2>
-      <div class="Certificate">
-        <img src="cert.jpg" alt="Certificate" />
-      </div>
+      <img src="cert.jpg" alt="Certificate" />
     </section>
 
     <section class="gallery">
