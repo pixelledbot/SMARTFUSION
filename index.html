@@ -175,20 +175,27 @@
       aspect-ratio: 4 / 3;
     }
 
-    .certificate {
-      margin-top: 25px;
+    /* Certificate box styles */
+    .certificate-box {
       text-align: center;
+      cursor: pointer;
     }
 
-    .certificate img {
-      max-width: 250px;
+    .certificate-box a {
+      display: inline-block;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .certificate-box img {
+      max-width: 300px;
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
 
-    .certificate img:hover {
+    .certificate-box img:hover {
       transform: scale(1.05);
     }
 
@@ -206,8 +213,8 @@
       .week, .project, .gallery {
         padding: 30px 50px;
       }
-      .certificate img {
-        max-width: 300px;
+      .certificate-box img {
+        max-width: 350px;
       }
     }
   </style>
@@ -236,10 +243,6 @@
       <div class="day"><a href="Week-1-Day-1.html">Day 1</a></div>
       <div class="day"><a href="Week-1-Day-2.html">Day 2</a></div>
       <div class="day"><a href="Week-1-Day-3.html">Day 3</a></div>
-
-      <div class="certificate">
-        <img src="cert.png" alt="Certificate" />
-      </div>
     </div>
 
     <div class="week">
@@ -249,10 +252,6 @@
       <div class="day"><a href="Week-2-Day-3.html">Day 3</a></div>
       <div class="day"><a href="Week-2-Day-4.html">Day 4</a></div>
       <div class="day"><a href="Week-2-Day-5.html">Day 5</a></div>
-
-      <div class="certificate">
-        <img src="cert.png" alt="Certificate" />
-      </div>
     </div>
 
     <div class="week">
@@ -260,10 +259,14 @@
       <div class="day"><a href="Week-3-Day-1.html">Day 1</a></div>
       <div class="day"><a href="Week-3-Day-2.html">Day 2</a></div>
       <div class="day"><a href="Week-3-Day-3.html">Day 3</a></div>
+    </div>
 
-      <div class="certificate">
+    <!-- Certificate clickable box -->
+    <div class="project certificate-box">
+      <h2>Certificate</h2>
+      <a href="cert.png" target="_blank" rel="noopener noreferrer">
         <img src="cert.png" alt="Certificate" />
-      </div>
+      </a>
     </div>
 
     <section class="gallery">
